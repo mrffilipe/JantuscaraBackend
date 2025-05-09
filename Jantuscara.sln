@@ -5,6 +5,12 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jantuscara.API", "Jantuscara.API\Jantuscara.API.csproj", "{9499D520-A69C-4A43-AC7D-93E5B229403D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jantuscara.Domain", "Jantuscara.Domain\Jantuscara.Domain.csproj", "{D4C78E83-C751-4227-9074-D2FEF7146B2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jantuscara.Application", "Jantuscara.Application\Jantuscara.Application.csproj", "{2D0FF577-1B62-4A83-A219-4881F02A2EE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jantuscara.Infrastructure", "Jantuscara.Infrastructure\Jantuscara.Infrastructure.csproj", "{D7983C6E-E7F1-4033-A5FB-DE5C31459A12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{9499D520-A69C-4A43-AC7D-93E5B229403D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9499D520-A69C-4A43-AC7D-93E5B229403D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9499D520-A69C-4A43-AC7D-93E5B229403D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C78E83-C751-4227-9074-D2FEF7146B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C78E83-C751-4227-9074-D2FEF7146B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4C78E83-C751-4227-9074-D2FEF7146B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C78E83-C751-4227-9074-D2FEF7146B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D0FF577-1B62-4A83-A219-4881F02A2EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D0FF577-1B62-4A83-A219-4881F02A2EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D0FF577-1B62-4A83-A219-4881F02A2EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D0FF577-1B62-4A83-A219-4881F02A2EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7983C6E-E7F1-4033-A5FB-DE5C31459A12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7983C6E-E7F1-4033-A5FB-DE5C31459A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7983C6E-E7F1-4033-A5FB-DE5C31459A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7983C6E-E7F1-4033-A5FB-DE5C31459A12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
