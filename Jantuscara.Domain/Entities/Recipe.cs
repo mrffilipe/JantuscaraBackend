@@ -14,6 +14,27 @@ namespace Jantuscara.Domain.Entities
         public Category Category { get; private set; }
 
         public ICollection<Taster> Tasters { get; private set; }
-        public ICollection<RecipeIngredient> Ingredients { get; private set; }        
+        public ICollection<RecipeIngredient> Ingredients { get; private set; }
+
+        private Recipe()
+        {
+        }
+
+        public Recipe(string name, DateTime creationDate, ICollection<RecipeIngredient> ingredients)
+        {
+            Name = name;
+            CreationDate = creationDate;
+            Ingredients = ingredients;
+        }
+
+        public void SetChef(Guid chefId)
+        {
+            ChefId = chefId;
+        }
+
+        public void SetCategory(Guid categoryId)
+        {
+            CategoryId = categoryId;
+        }
     }
 }

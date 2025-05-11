@@ -6,5 +6,9 @@ namespace Jantuscara.Domain.Entities
     {
         public string Name { get; private set; }
         public DateTime ContractDate { get; private set; }
+
+        protected User()
+        {
+        }
     }
 }

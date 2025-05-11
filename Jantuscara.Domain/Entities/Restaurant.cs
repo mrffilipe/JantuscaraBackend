@@ -8,5 +8,9 @@ namespace Jantuscara.Domain.Entities
         public string Resume { get; private set; }
 
         public ICollection<Chef> Chefs { get; private set; }
+
+        private Restaurant()
+        {
+        }
     }
 }

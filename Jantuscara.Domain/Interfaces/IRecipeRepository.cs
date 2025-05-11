@@ -9,7 +9,6 @@ namespace Jantuscara.Domain.Interfaces
         Task<IEnumerable<Recipe>> GetByCategoryAsync(Guid categoryId);
         Task<IEnumerable<Recipe>> GetByChefIdAsync(Guid chefId);
         Task<IEnumerable<Recipe>> GetByBookIdAsync(Guid bookId);
-        Task<IEnumerable<Recipe>> GetByCreationDateRangeAsync(DateTime start, DateTime end);
 
         Task AddAsync(Recipe recipe);
         Task UpdateAsync(Recipe recipe);

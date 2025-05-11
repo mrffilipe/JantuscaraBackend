@@ -7,5 +7,14 @@ namespace Jantuscara.Domain.Entities
         public string Name { get; private set; }
 
         public ICollection<RecipeIngredient> Recipes { get; private set; }
+
+        private Ingredient()
+        {
+        }
+
+        public Ingredient(string name)
+        {
+            Name = name;
+        }
     }
 }

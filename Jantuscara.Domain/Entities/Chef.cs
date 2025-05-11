@@ -8,5 +8,9 @@
         public Restaurant Restaurant { get; set; }
 
         public ICollection<Recipe> CreatedRecipes { get; private set; }
+
+        private Chef()
+        {
+        }
     }
 }

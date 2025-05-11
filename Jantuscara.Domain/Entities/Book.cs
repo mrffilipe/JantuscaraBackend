@@ -11,5 +11,9 @@ namespace Jantuscara.Domain.Entities
         public Editor Editor { get; private set; }
 
         public ICollection<Recipe> IncludedRecipes { get; private set; }
+
+        private Book()
+        {
+        }
     }
 }
