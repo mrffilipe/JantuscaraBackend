@@ -36,14 +36,14 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("{restaurantId:guid}")]
-        public async Task<ActionResult<RestaurantDto>> GetRestaurantById(Guid restaurantId)
+        public async Task<ActionResult<RestaurantDto?>> GetRestaurantById(Guid restaurantId)
         {
             var result = await _getRestaurantByIdUseCase.ExecuteAsync(restaurantId);
             return Ok(result);
         }
 
         [HttpGet]
-        public async Task<ActionResult<RestaurantDto>> GetAllRestaurant()
+        public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAllRestaurant()
         {
             var result = await _getAllRestaurantsUseCase.ExecuteAsync();
             return Ok(result);
@@ -58,7 +58,7 @@ namespace Jantuscara.API.Controller
 
         [HttpDelete]
         [Route("{restaurantId:guid}")]
-        public async Task<ActionResult<RestaurantDto>> DeleteRestaurant(Guid restaurantId)
+        public async Task<ActionResult<IMessageResponse>> DeleteRestaurant(Guid restaurantId)
         {
             var result = await _deleteRestaurantUseCase.ExecuteAsync(restaurantId);
             return Ok(result);

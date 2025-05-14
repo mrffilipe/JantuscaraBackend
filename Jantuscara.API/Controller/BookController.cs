@@ -36,14 +36,14 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("{bookId:guid}")]
-        public async Task<ActionResult<BookDto>> GetBookById(Guid bookId)
+        public async Task<ActionResult<BookDto?>> GetBookById(Guid bookId)
         {
             var result = await _getBookByIdUseCase.ExecuteAsync(bookId);
             return Ok(result);
         }
 
         [HttpGet]
-        public async Task<ActionResult<BookDto>> GetAllBook()
+        public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBook()
         {
             var result = await _getAllBooksUseCase.ExecuteAsync();
             return Ok(result);
@@ -58,7 +58,7 @@ namespace Jantuscara.API.Controller
 
         [HttpDelete]
         [Route("{bookId:guid}")]
-        public async Task<ActionResult<BookDto>> DeleteBook(Guid bookId)
+        public async Task<ActionResult<IMessageResponse>> DeleteBook(Guid bookId)
         {
             var result = await _deleteBookUseCase.ExecuteAsync(bookId);
             return Ok(result);

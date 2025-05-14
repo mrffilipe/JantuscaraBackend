@@ -35,7 +35,7 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("chef/{chefId:guid}")]
-        public async Task<ActionResult<ChefDto>> GetChefById(Guid chefId)
+        public async Task<ActionResult<ChefDto?>> GetChefById(Guid chefId)
         {
             var result = await _getChefByIdUseCase.ExecuteAsync(chefId);
             return Ok(result);
@@ -43,7 +43,7 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("chef")]
-        public async Task<ActionResult<ChefDto>> GetAllChef()
+        public async Task<ActionResult<IEnumerable<ChefDto>>> GetAllChef()
         {
             var result = await _getAllChefsUseCase.ExecuteAsync();
             return Ok(result);
@@ -59,7 +59,7 @@ namespace Jantuscara.API.Controller
 
         [HttpDelete]
         [Route("chef/{chefId:guid}")]
-        public async Task<ActionResult<ChefDto>> DeleteChef(Guid chefId)
+        public async Task<ActionResult<IMessageResponse>> DeleteChef(Guid chefId)
         {
             var result = await _deleteChefUseCase.ExecuteAsync(chefId);
             return Ok(result);
@@ -75,7 +75,7 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("taster/{tasterId:guid}")]
-        public async Task<ActionResult<TasterDto>> GetTasterById(Guid tasterId)
+        public async Task<ActionResult<TasterDto?>> GetTasterById(Guid tasterId)
         {
             var result = await _getTasterByIdUseCase.ExecuteAsync(tasterId);
             return Ok(result);
@@ -83,7 +83,7 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("taster")]
-        public async Task<ActionResult<TasterDto>> GetAllTaster()
+        public async Task<ActionResult<IEnumerable<TasterDto>>> GetAllTaster()
         {
             var result = await _getAllTastersUseCase.ExecuteAsync();
             return Ok(result);
@@ -99,7 +99,7 @@ namespace Jantuscara.API.Controller
 
         [HttpDelete]
         [Route("taster/{tasterId:guid}")]
-        public async Task<ActionResult<TasterDto>> DeleteTaster(Guid tasterId)
+        public async Task<ActionResult<IMessageResponse>> DeleteTaster(Guid tasterId)
         {
             var result = await _deleteTasterUseCase.ExecuteAsync(tasterId);
             return Ok(result);
@@ -115,7 +115,7 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("editor/{editorId:guid}")]
-        public async Task<ActionResult<EditorDto>> GetEditorById(Guid editorId)
+        public async Task<ActionResult<EditorDto?>> GetEditorById(Guid editorId)
         {
             var result = await _getEditorByIdUseCase.ExecuteAsync(editorId);
             return Ok(result);
@@ -123,7 +123,7 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("editor")]
-        public async Task<ActionResult<EditorDto>> GetAllEditor()
+        public async Task<ActionResult<IEnumerable<EditorDto>>> GetAllEditor()
         {
             var result = await _getAllEditorsUseCase.ExecuteAsync();
             return Ok(result);
@@ -139,7 +139,7 @@ namespace Jantuscara.API.Controller
 
         [HttpDelete]
         [Route("editor/{editorId:guid}")]
-        public async Task<ActionResult<EditorDto>> DeleteEditor(Guid editorId)
+        public async Task<ActionResult<IMessageResponse>> DeleteEditor(Guid editorId)
         {
             var result = await _deleteEditorUseCase.ExecuteAsync(editorId);
             return Ok(result);

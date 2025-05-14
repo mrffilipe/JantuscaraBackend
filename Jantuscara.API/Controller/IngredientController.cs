@@ -36,14 +36,14 @@ namespace Jantuscara.API.Controller
 
         [HttpGet]
         [Route("{ingredientId:guid}")]
-        public async Task<ActionResult<IngredientDto>> GetIngredientById(Guid ingredientId)
+        public async Task<ActionResult<IngredientDto?>> GetIngredientById(Guid ingredientId)
         {
             var result = await _getIngredientByIdUseCase.ExecuteAsync(ingredientId);
             return Ok(result);
         }
 
         [HttpGet]
-        public async Task<ActionResult<IngredientDto>> GetAllIngredient()
+        public async Task<ActionResult<IEnumerable<IngredientDto>>> GetAllIngredient()
         {
             var result = await _getAllIngredientsUseCase.ExecuteAsync();
             return Ok(result);
@@ -58,7 +58,7 @@ namespace Jantuscara.API.Controller
 
         [HttpDelete]
         [Route("{ingredientId:guid}")]
-        public async Task<ActionResult<IngredientDto>> DeleteIngredient(Guid ingredientId)
+        public async Task<ActionResult<IMessageResponse>> DeleteIngredient(Guid ingredientId)
         {
             var result = await _deleteIngredientUseCase.ExecuteAsync(ingredientId);
             return Ok(result);
