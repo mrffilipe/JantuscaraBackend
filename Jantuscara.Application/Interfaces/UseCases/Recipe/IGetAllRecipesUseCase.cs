@@ -2,8 +2,8 @@
 
 namespace Jantuscara.Application.Interfaces.UseCases.Recipe
 {
-    public interface ICreateRecipeUseCase
+    public interface IGetAllRecipesUseCase
     {
-        Task<string> ExecuteAsync(CreateRecipeDto dto);
+        Task<IEnumerable<RecipeDto>> ExecuteAsync();
     }
 }

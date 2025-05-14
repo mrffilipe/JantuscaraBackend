@@ -1,8 +1,8 @@
 ﻿using Jantuscara.Application.Common;
 
-namespace Jantuscara.Application.Interfaces.UseCases.Recipe
+namespace Jantuscara.Application.Interfaces.UseCases.Book
 {
-    public interface IDeleteRecipeUseCase
+    public interface IDeleteBookUseCase
     {
         Task<IMessageResponse> ExecuteAsync(Guid id);
     }

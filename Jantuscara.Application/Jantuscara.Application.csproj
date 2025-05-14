@@ -10,4 +10,8 @@
 		<ProjectReference Include="..\Jantuscara.Domain\Jantuscara.Domain.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="UseCases\" />
+	</ItemGroup>
+
 </Project>

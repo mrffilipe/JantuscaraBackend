@@ -1,11 +1,12 @@
 ﻿namespace Jantuscara.Application.DTOs.Recipe
 {
-    public record CreateRecipeDto
+    public record AddRecipeDto
     {
         public string Name { get; set; }
-        public DateTime CreationDate { get; set; }
+        public DateOnly CreationDate { get; set; }
         public Guid ChefId { get; set; }
+        public Guid BookId { get; set; }
         public Guid CategoryId { get; set; }
-        public List<IngredientDto> Ingredients { get; set; }
+        public ICollection<Guid> Ingredients { get; set; }
     }
 }

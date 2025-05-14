@@ -3,8 +3,8 @@ using Jantuscara.Application.DTOs.Recipe;
 
 namespace Jantuscara.Application.Interfaces.UseCases.Recipe
 {
-    public interface IUpdateRecipeUseCase
+    public interface IAddRecipeUseCase
     {
-        Task<IMessageResponse> ExecuteAsync(UpdateRecipeDto dto);
+        Task<IMessageResponse> ExecuteAsync(AddRecipeDto dto);
     }
 }
