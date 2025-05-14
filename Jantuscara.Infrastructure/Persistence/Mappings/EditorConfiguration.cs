@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Jantuscara.Infrastructure.Persistence.Mappings
 {
-    public class ChefConfiguration : BaseEntityConfiguration<Chef>
+    public class EditorConfiguration : BaseEntityConfiguration<Editor>
     {
-        public override void Configure(EntityTypeBuilder<Chef> builder)
+        public override void Configure(EntityTypeBuilder<Editor> builder)
         {
             base.Configure(builder);
 
-            builder.ToTable("chefs");
+            builder.ToTable("editors");
 
             builder.Property(x => x.Name)
                 .HasColumnName("name")
@@ -18,14 +18,6 @@ namespace Jantuscara.Infrastructure.Persistence.Mappings
 
             builder.Property(x => x.ContractDate)
                 .HasColumnName("contract_date")
-                .IsRequired();
-
-            builder.Property(x => x.TradeName)
-                .HasColumnName("trade_name")
-                .IsRequired();
-
-            builder.Property(x => x.RestaurantId)
-                .HasColumnName("restaurant_id")
                 .IsRequired();
         }
     }

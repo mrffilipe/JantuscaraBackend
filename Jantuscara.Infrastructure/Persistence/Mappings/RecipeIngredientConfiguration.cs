@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Jantuscara.Infrastructure.Persistence.Mappings
 {
-    public class RecipeIngredients : BaseEntityConfiguration<RecipeIngredient>
+    public class RecipeIngredientConfiguration : BaseEntityConfiguration<RecipeIngredient>
     {
         public override void Configure(EntityTypeBuilder<RecipeIngredient> builder)
         {

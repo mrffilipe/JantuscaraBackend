@@ -2,9 +2,15 @@
 {
     public class Taster : User
     {
-        public ICollection<Recipe> TestedRecipes { get; private set; }
+        public ICollection<RecipeTaster> Recipes { get; private set; } = [];
 
         private Taster()
+        {
+        }
+
+        public Taster(string name, DateOnly contractDate) : base(
+            name,
+            contractDate)
         {
         }
     }

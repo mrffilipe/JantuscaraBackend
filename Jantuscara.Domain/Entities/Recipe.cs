@@ -4,37 +4,48 @@ namespace Jantuscara.Domain.Entities
 {
     public class Recipe : BaseEntity
     {
-        public string Name { get; private set; }
-        public DateTime CreationDate { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public DateOnly CreationDate { get; private set; }
 
         public Guid ChefId { get; private set; }
-        public Chef Chef { get; private set; }
+        public Chef Chef { get; private set; } = null!;
+
+        public Guid BookId { get; private set; }
+        public Book Book { get; private set; } = null!;
 
         public Guid CategoryId { get; private set; }
-        public Category Category { get; private set; }
+        public Category Category { get; private set; } = null!;
 
-        public ICollection<Taster> Tasters { get; private set; }
-        public ICollection<RecipeIngredient> Ingredients { get; private set; }
+        public ICollection<RecipeIngredient> Ingredients { get; private set; } = [];
+        public ICollection<RecipeTaster> Tasters { get; private set; } = [];
 
         private Recipe()
         {
         }
 
-        public Recipe(string name, DateTime creationDate, ICollection<RecipeIngredient> ingredients)
+        public Recipe(
+            string name,
+            DateOnly creationDate,
+            Guid chefId,
+            Guid bookId,
+            Guid categoryId)
         {
             Name = name;
             CreationDate = creationDate;
-            Ingredients = ingredients;
-        }
-
-        public void SetChef(Guid chefId)
-        {
             ChefId = chefId;
+            BookId = bookId;
+            CategoryId = categoryId;
         }
 
-        public void SetCategory(Guid categoryId)
+        public void AddTaster(Taster taster)
         {
-            CategoryId = categoryId;
+            Tasters.Add(new RecipeTaster(this, taster)); // validar
+        }
+
+        public void AddIngredient(RecipeIngredient ingredient)
+        {
+            // validar
+            Ingredients.Add(ingredient);
         }
     }
 }

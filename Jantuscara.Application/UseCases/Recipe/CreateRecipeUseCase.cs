@@ -18,17 +18,17 @@ namespace Jantuscara.Application.UseCases.Recipe
         {
             var ingredients = new List<RecipeIngredient>();
 
-            foreach (var item in dto.Ingredients)
-            {
-                ingredients.Add(new RecipeIngredient(item.Id, item.Quantity, item.Unit));
-            }
+            //foreach (var item in dto.Ingredients)
+            //{
+            //    ingredients.Add(new RecipeIngredient(item.Id, item.Quantity, item.Unit));
+            //}
 
-            var recipe = new Domain.Entities.Recipe(dto.Name, dto.CreationDate, ingredients);
+            //var recipe = new Domain.Entities.Recipe(dto.Name, dto.CreationDate, ingredients);
 
-            recipe.SetChef(dto.ChefId);
-            recipe.SetCategory(dto.CategoryId);
+            //recipe.SetChef(dto.ChefId);
+            //recipe.SetCategory(dto.CategoryId);
 
-            await _repository.AddAsync(recipe);
+            //await _repository.AddAsync(recipe);
 
             var message = $"Receita {dto.Name} criada com sucesso!";
 

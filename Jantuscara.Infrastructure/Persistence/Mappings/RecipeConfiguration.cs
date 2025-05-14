@@ -24,6 +24,10 @@ namespace Jantuscara.Infrastructure.Persistence.Mappings
                 .HasColumnName("chef_id")
                 .IsRequired();
 
+            builder.Property(x => x.BookId)
+                .HasColumnName("book_id")
+                .IsRequired();
+
             builder.Property(x => x.CategoryId)
                 .HasColumnName("category_id")
                 .IsRequired();

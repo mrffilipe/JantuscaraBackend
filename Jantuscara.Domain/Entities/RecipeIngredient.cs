@@ -5,21 +5,26 @@ namespace Jantuscara.Domain.Entities
     public class RecipeIngredient : BaseEntity
     {
         public Guid RecipeId { get; private set; }
-        public Recipe Recipe { get; private set; }
+        public Recipe Recipe { get; private set; } = null!;
 
         public Guid IngredientId { get; private set; }
-        public Ingredient Ingredient { get; private set; }
+        public Ingredient Ingredient { get; private set; } = null!;
 
         public double Quantity { get; private set; }
-        public string Unit { get; private set; }
+        public string Unit { get; private set; } = string.Empty;
 
         private RecipeIngredient()
         {
         }
 
-        public RecipeIngredient(Guid ingredientId, double quantity, string unit)
+        public RecipeIngredient(
+            Recipe recipe,
+            Ingredient ingredient,
+            double quantity,
+            string unit)
         {
-            IngredientId = ingredientId;
+            Recipe = recipe;
+            Ingredient = ingredient;
             Quantity = quantity;
             Unit = unit;
         }

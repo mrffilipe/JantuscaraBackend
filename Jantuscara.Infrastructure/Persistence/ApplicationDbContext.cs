@@ -8,7 +8,16 @@ namespace Jantuscara.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Chef> Chefs { get; set; }
+        public DbSet<Editor> Editors { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
+        public DbSet<RecipeTaster> RecipeTasters { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Taster> Tasters { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {

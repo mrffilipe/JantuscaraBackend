@@ -22,6 +22,42 @@ namespace Jantuscara.Infrastructure.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("Jantuscara.Domain.Entities.Book", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid>("EditorId")
+                        .HasColumnType("char(36)")
+                        .HasColumnName("editor_id");
+
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("isbn");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("title");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EditorId");
+
+                    b.ToTable("books", (string)null);
+                });
+
             modelBuilder.Entity("Jantuscara.Domain.Entities.Category", b =>
                 {
                     b.Property<Guid>("Id")
@@ -54,8 +90,8 @@ namespace Jantuscara.Infrastructure.Migrations
                         .HasColumnType("char(36)")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("ContractDate")
-                        .HasColumnType("datetime(6)")
+                    b.Property<DateOnly>("ContractDate")
+                        .HasColumnType("date")
                         .HasColumnName("contract_date");
 
                     b.Property<DateTime>("CreatedAt")
@@ -85,6 +121,35 @@ namespace Jantuscara.Infrastructure.Migrations
                     b.HasIndex("RestaurantId");
 
                     b.ToTable("chefs", (string)null);
+                });
+
+            modelBuilder.Entity("Jantuscara.Domain.Entities.Editor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasColumnName("id");
+
+                    b.Property<DateOnly>("ContractDate")
+                        .HasColumnType("date")
+                        .HasColumnName("contract_date");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("name");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("editors", (string)null);
                 });
 
             modelBuilder.Entity("Jantuscara.Domain.Entities.Ingredient", b =>
@@ -119,6 +184,10 @@ namespace Jantuscara.Infrastructure.Migrations
                         .HasColumnType("char(36)")
                         .HasColumnName("id");
 
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("char(36)")
+                        .HasColumnName("book_id");
+
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("char(36)")
                         .HasColumnName("category_id");
@@ -131,8 +200,8 @@ namespace Jantuscara.Infrastructure.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_at");
 
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime(6)")
+                    b.Property<DateOnly>("CreationDate")
+                        .HasColumnType("date")
                         .HasColumnName("creation_date");
 
                     b.Property<string>("Name")
@@ -145,6 +214,8 @@ namespace Jantuscara.Infrastructure.Migrations
                         .HasColumnName("updated_at");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
 
                     b.HasIndex("CategoryId");
 
@@ -194,6 +265,38 @@ namespace Jantuscara.Infrastructure.Migrations
                     b.ToTable("recipe_ingredients", (string)null);
                 });
 
+            modelBuilder.Entity("Jantuscara.Domain.Entities.RecipeTaster", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid>("RecipeId")
+                        .HasColumnType("char(36)")
+                        .HasColumnName("recipe_id");
+
+                    b.Property<Guid>("TasterId")
+                        .HasColumnType("char(36)")
+                        .HasColumnName("taster_id");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeId");
+
+                    b.HasIndex("TasterId");
+
+                    b.ToTable("recipe_tasters", (string)null);
+                });
+
             modelBuilder.Entity("Jantuscara.Domain.Entities.Restaurant", b =>
                 {
                     b.Property<Guid>("Id")
@@ -228,39 +331,40 @@ namespace Jantuscara.Infrastructure.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("char(36)")
+                        .HasColumnName("id");
 
-                    b.Property<DateTime>("ContractDate")
-                        .HasColumnType("datetime(6)");
+                    b.Property<DateOnly>("ContractDate")
+                        .HasColumnType("date")
+                        .HasColumnName("contract_date");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_at");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("longtext")
+                        .HasColumnName("name");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("updated_at");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Taster");
+                    b.ToTable("tasters", (string)null);
                 });
 
-            modelBuilder.Entity("RecipeTaster", b =>
+            modelBuilder.Entity("Jantuscara.Domain.Entities.Book", b =>
                 {
-                    b.Property<Guid>("TastersId")
-                        .HasColumnType("char(36)");
+                    b.HasOne("Jantuscara.Domain.Entities.Editor", "Editor")
+                        .WithMany("Books")
+                        .HasForeignKey("EditorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<Guid>("TestedRecipesId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("TastersId", "TestedRecipesId");
-
-                    b.HasIndex("TestedRecipesId");
-
-                    b.ToTable("RecipeTaster");
+                    b.Navigation("Editor");
                 });
 
             modelBuilder.Entity("Jantuscara.Domain.Entities.Chef", b =>
@@ -276,6 +380,12 @@ namespace Jantuscara.Infrastructure.Migrations
 
             modelBuilder.Entity("Jantuscara.Domain.Entities.Recipe", b =>
                 {
+                    b.HasOne("Jantuscara.Domain.Entities.Book", "Book")
+                        .WithMany("Recipes")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Jantuscara.Domain.Entities.Category", "Category")
                         .WithMany("Recipes")
                         .HasForeignKey("CategoryId")
@@ -283,10 +393,12 @@ namespace Jantuscara.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("Jantuscara.Domain.Entities.Chef", "Chef")
-                        .WithMany("CreatedRecipes")
+                        .WithMany("Recipes")
                         .HasForeignKey("ChefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Book");
 
                     b.Navigation("Category");
 
@@ -312,19 +424,28 @@ namespace Jantuscara.Infrastructure.Migrations
                     b.Navigation("Recipe");
                 });
 
-            modelBuilder.Entity("RecipeTaster", b =>
+            modelBuilder.Entity("Jantuscara.Domain.Entities.RecipeTaster", b =>
                 {
-                    b.HasOne("Jantuscara.Domain.Entities.Taster", null)
-                        .WithMany()
-                        .HasForeignKey("TastersId")
+                    b.HasOne("Jantuscara.Domain.Entities.Recipe", "Recipe")
+                        .WithMany("Tasters")
+                        .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Jantuscara.Domain.Entities.Recipe", null)
-                        .WithMany()
-                        .HasForeignKey("TestedRecipesId")
+                    b.HasOne("Jantuscara.Domain.Entities.Taster", "Taster")
+                        .WithMany("Recipes")
+                        .HasForeignKey("TasterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Recipe");
+
+                    b.Navigation("Taster");
+                });
+
+            modelBuilder.Entity("Jantuscara.Domain.Entities.Book", b =>
+                {
+                    b.Navigation("Recipes");
                 });
 
             modelBuilder.Entity("Jantuscara.Domain.Entities.Category", b =>
@@ -334,7 +455,12 @@ namespace Jantuscara.Infrastructure.Migrations
 
             modelBuilder.Entity("Jantuscara.Domain.Entities.Chef", b =>
                 {
-                    b.Navigation("CreatedRecipes");
+                    b.Navigation("Recipes");
+                });
+
+            modelBuilder.Entity("Jantuscara.Domain.Entities.Editor", b =>
+                {
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("Jantuscara.Domain.Entities.Ingredient", b =>
@@ -345,11 +471,18 @@ namespace Jantuscara.Infrastructure.Migrations
             modelBuilder.Entity("Jantuscara.Domain.Entities.Recipe", b =>
                 {
                     b.Navigation("Ingredients");
+
+                    b.Navigation("Tasters");
                 });
 
             modelBuilder.Entity("Jantuscara.Domain.Entities.Restaurant", b =>
                 {
                     b.Navigation("Chefs");
+                });
+
+            modelBuilder.Entity("Jantuscara.Domain.Entities.Taster", b =>
+                {
+                    b.Navigation("Recipes");
                 });
 #pragma warning restore 612, 618
         }

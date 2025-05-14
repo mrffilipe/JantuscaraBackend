@@ -31,6 +31,23 @@ namespace Jantuscara.Infrastructure.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "editors",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    created_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    contract_date = table.Column<DateOnly>(type: "date", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_editors", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "ingredients",
                 columns: table => new
                 {
@@ -65,19 +82,44 @@ namespace Jantuscara.Infrastructure.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Taster",
+                name: "tasters",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Name = table.Column<string>(type: "longtext", nullable: false)
+                    id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    created_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    ContractDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    contract_date = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Taster", x => x.Id);
+                    table.PrimaryKey("PK_tasters", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "books",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    title = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    isbn = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    editor_id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    created_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_books", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_books_editors_editor_id",
+                        column: x => x.editor_id,
+                        principalTable: "editors",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -93,7 +135,7 @@ namespace Jantuscara.Infrastructure.Migrations
                     updated_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    contract_date = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    contract_date = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -114,8 +156,9 @@ namespace Jantuscara.Infrastructure.Migrations
                     id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    creation_date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    creation_date = table.Column<DateOnly>(type: "date", nullable: false),
                     chef_id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    book_id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     category_id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     created_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     updated_at = table.Column<DateTime>(type: "datetime(6)", nullable: false)
@@ -123,6 +166,12 @@ namespace Jantuscara.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_recipes", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_recipes_books_book_id",
+                        column: x => x.book_id,
+                        principalTable: "books",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_recipes_categories_category_id",
                         column: x => x.category_id,
@@ -170,29 +219,37 @@ namespace Jantuscara.Infrastructure.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "RecipeTaster",
+                name: "recipe_tasters",
                 columns: table => new
                 {
-                    TastersId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    TestedRecipesId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    recipe_id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    taster_id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    created_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RecipeTaster", x => new { x.TastersId, x.TestedRecipesId });
+                    table.PrimaryKey("PK_recipe_tasters", x => x.id);
                     table.ForeignKey(
-                        name: "FK_RecipeTaster_Taster_TastersId",
-                        column: x => x.TastersId,
-                        principalTable: "Taster",
-                        principalColumn: "Id",
+                        name: "FK_recipe_tasters_recipes_recipe_id",
+                        column: x => x.recipe_id,
+                        principalTable: "recipes",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RecipeTaster_recipes_TestedRecipesId",
-                        column: x => x.TestedRecipesId,
-                        principalTable: "recipes",
+                        name: "FK_recipe_tasters_tasters_taster_id",
+                        column: x => x.taster_id,
+                        principalTable: "tasters",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_books_editor_id",
+                table: "books",
+                column: "editor_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_chefs_restaurant_id",
@@ -210,6 +267,21 @@ namespace Jantuscara.Infrastructure.Migrations
                 column: "recipe_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_recipe_tasters_recipe_id",
+                table: "recipe_tasters",
+                column: "recipe_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_recipe_tasters_taster_id",
+                table: "recipe_tasters",
+                column: "taster_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_recipes_book_id",
+                table: "recipes",
+                column: "book_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_recipes_category_id",
                 table: "recipes",
                 column: "category_id");
@@ -218,11 +290,6 @@ namespace Jantuscara.Infrastructure.Migrations
                 name: "IX_recipes_chef_id",
                 table: "recipes",
                 column: "chef_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RecipeTaster_TestedRecipesId",
-                table: "RecipeTaster",
-                column: "TestedRecipesId");
         }
 
         /// <inheritdoc />
@@ -232,22 +299,28 @@ namespace Jantuscara.Infrastructure.Migrations
                 name: "recipe_ingredients");
 
             migrationBuilder.DropTable(
-                name: "RecipeTaster");
+                name: "recipe_tasters");
 
             migrationBuilder.DropTable(
                 name: "ingredients");
 
             migrationBuilder.DropTable(
-                name: "Taster");
+                name: "recipes");
 
             migrationBuilder.DropTable(
-                name: "recipes");
+                name: "tasters");
+
+            migrationBuilder.DropTable(
+                name: "books");
 
             migrationBuilder.DropTable(
                 name: "categories");
 
             migrationBuilder.DropTable(
                 name: "chefs");
+
+            migrationBuilder.DropTable(
+                name: "editors");
 
             migrationBuilder.DropTable(
                 name: "restaurants");
