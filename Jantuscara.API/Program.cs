@@ -1,6 +1,5 @@
-using Jantuscara.Domain.Interfaces;
 using Jantuscara.Infrastructure.Configurations;
-using Jantuscara.Infrastructure.Persistence.Repositories;
+using Jantuscara.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+builder.Services
+    .AddRepositories()
+    .AddUseCases();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

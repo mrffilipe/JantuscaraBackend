@@ -16,6 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Jantuscara.Application\Jantuscara.Application.csproj" />
 		<ProjectReference Include="..\Jantuscara.Domain\Jantuscara.Domain.csproj" />
 	</ItemGroup>
 
