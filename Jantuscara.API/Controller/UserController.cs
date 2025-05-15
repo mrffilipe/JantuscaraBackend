@@ -25,6 +25,40 @@ namespace Jantuscara.API.Controller
         private readonly IUpdateEditorUseCase _updateEditorUseCase;
         private readonly IDeleteEditorUseCase _deleteEditorUseCase;
 
+        public UserController(
+            IAddChefUseCase addChefUseCase,
+            IGetChefByIdUseCase getChefByIdUseCase,
+            IGetAllChefsUseCase getAllChefsUseCase,
+            IUpdateChefUseCase updateChefUseCase,
+            IDeleteChefUseCase deleteChefUseCase,
+            IAddTasterUseCase addTasterUseCase,
+            IGetTasterByIdUseCase getTasterByIdUseCase,
+            IGetAllTastersUseCase getAllTastersUseCase,
+            IUpdateTasterUseCase updateTasterUseCase,
+            IDeleteTasterUseCase deleteTasterUseCase,
+            IAddEditorUseCase addEditorUseCase,
+            IGetEditorByIdUseCase getEditorByIdUseCase,
+            IGetAllEditorsUseCase getAllEditorsUseCase,
+            IUpdateEditorUseCase updateEditorUseCase,
+            IDeleteEditorUseCase deleteEditorUseCase)
+        {
+            _addChefUseCase = addChefUseCase;
+            _getChefByIdUseCase = getChefByIdUseCase;
+            _getAllChefsUseCase = getAllChefsUseCase;
+            _updateChefUseCase = updateChefUseCase;
+            _deleteChefUseCase = deleteChefUseCase;
+            _addTasterUseCase = addTasterUseCase;
+            _getTasterByIdUseCase = getTasterByIdUseCase;
+            _getAllTastersUseCase = getAllTastersUseCase;
+            _updateTasterUseCase = updateTasterUseCase;
+            _deleteTasterUseCase = deleteTasterUseCase;
+            _addEditorUseCase = addEditorUseCase;
+            _getEditorByIdUseCase = getEditorByIdUseCase;
+            _getAllEditorsUseCase = getAllEditorsUseCase;
+            _updateEditorUseCase = updateEditorUseCase;
+            _deleteEditorUseCase = deleteEditorUseCase;
+        }
+
         [HttpPost]
         [Route("chef")]
         public async Task<ActionResult<IMessageResponse>> AddChef([FromBody] AddChefDto dto)

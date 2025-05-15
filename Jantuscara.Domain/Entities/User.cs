@@ -17,7 +17,7 @@ namespace Jantuscara.Domain.Entities
             ContractDate = contractDate;
         }
 
-        protected void UpdateInfo(string name, DateOnly contractDate)
+        public void UpdateInfo(string name, DateOnly contractDate)
         {
             Name = name;
             ContractDate = contractDate;
