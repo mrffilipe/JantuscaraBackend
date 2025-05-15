@@ -19,6 +19,18 @@ namespace Jantuscara.Domain.Entities
 
         public RecipeIngredient(
             Recipe recipe,
+            Guid ingredientId,
+            double quantity,
+            string unit)
+        {
+            Recipe = recipe;
+            IngredientId = ingredientId;
+            Quantity = quantity;
+            Unit = unit;
+        }
+
+        public RecipeIngredient(
+            Recipe recipe,
             Ingredient ingredient,
             double quantity,
             string unit)

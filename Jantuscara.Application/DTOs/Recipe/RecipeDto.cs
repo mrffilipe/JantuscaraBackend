@@ -11,7 +11,7 @@ namespace Jantuscara.Application.DTOs.Recipe
         public Guid ChefId { get; set; }
         public Guid BookId { get; set; }
         public Guid CategoryId { get; set; }
-        public List<IngredientDto> Ingredients { get; set; }
+        public ICollection<IngredientDto> Ingredients { get; set; }
 
         public string Message => $"Receita '{Name}' listada com sucesso!";
     }

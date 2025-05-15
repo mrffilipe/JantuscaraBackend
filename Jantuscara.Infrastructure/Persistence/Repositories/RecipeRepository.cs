@@ -22,12 +22,17 @@ namespace Jantuscara.Infrastructure.Persistence.Repositories
         public async Task<Recipe?> GetRecipeByIdAsync(Guid recipeId)
         {
             return await _context.Recipes
+                .Include(r => r.Ingredients)
+                    .ThenInclude(ri => ri.Ingredient)
                 .FirstOrDefaultAsync(r => r.Id == recipeId);
         }
 
         public async Task<IEnumerable<Recipe>> GetAllRecipesAsync()
         {
-            return await _context.Recipes.ToListAsync();
+            return await _context.Recipes
+                .Include(r => r.Ingredients)
+                    .ThenInclude(ri => ri.Ingredient)
+                .ToListAsync();
         }
 
         public void DeleteRecipeAsync(Recipe recipe)

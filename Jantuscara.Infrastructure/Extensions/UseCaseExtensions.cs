@@ -1,11 +1,13 @@
 ﻿using Jantuscara.Application.Interfaces.UseCases.Book;
 using Jantuscara.Application.Interfaces.UseCases.Category;
 using Jantuscara.Application.Interfaces.UseCases.Ingredient;
+using Jantuscara.Application.Interfaces.UseCases.Recipe;
 using Jantuscara.Application.Interfaces.UseCases.Restaurant;
 using Jantuscara.Application.Interfaces.UseCases.User;
 using Jantuscara.Application.UseCases.Book;
 using Jantuscara.Application.UseCases.Category;
 using Jantuscara.Application.UseCases.Ingredient;
+using Jantuscara.Application.UseCases.Recipe;
 using Jantuscara.Application.UseCases.Restaurant;
 using Jantuscara.Application.UseCases.User;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +35,12 @@ namespace Jantuscara.Infrastructure.Extensions
             services.AddScoped<IGetAllIngredientsUseCase, GetAllIngredientsUseCase>();
             services.AddScoped<IGetIngredientByIdUseCase, GetIngredientByIdUseCase>();
             services.AddScoped<IUpdateIngredientUseCase, UpdateIngredientUseCase>();
+
+            services.AddScoped<IAddRecipeUseCase, AddRecipeUseCase>();
+            services.AddScoped<IDeleteRecipeUseCase, DeleteRecipeUseCase>();
+            services.AddScoped<IGetAllRecipesUseCase, GetAllRecipesUseCase>();
+            services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
+            services.AddScoped<IUpdateRecipeUseCase, UpdateRecipeUseCase>();
 
             services.AddScoped<IAddRestaurantUseCase, AddRestaurantUseCase>();
             services.AddScoped<IDeleteRestaurantUseCase, DeleteRestaurantUseCase>();

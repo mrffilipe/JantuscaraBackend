@@ -37,14 +37,37 @@ namespace Jantuscara.Domain.Entities
             CategoryId = categoryId;
         }
 
+        public void UpdateInfo(string name, DateOnly creationDate)
+        {
+            Name = name;
+            CreationDate = creationDate;
+        }
+
         public void AddTaster(Taster taster)
         {
-            Tasters.Add(new RecipeTaster(this, taster)); // validar
+            if (taster is null)
+                throw new ArgumentNullException(nameof(taster), "Degustador não pode ser nulo.");
+
+            if (Tasters.Any(rt => rt.TasterId == taster.Id))
+                throw new InvalidOperationException("Este degustador já está associado à receita.");
+
+            Tasters.Add(new RecipeTaster(this, taster));
         }
 
         public void AddIngredient(RecipeIngredient ingredient)
         {
-            // validar
+            if (ingredient is null)
+                throw new ArgumentNullException(nameof(ingredient), "Ingrediente não pode ser nulo.");
+
+            if (ingredient.Quantity <= 0)
+                throw new ArgumentException("A quantidade do ingrediente deve ser maior que zero.");
+
+            if (string.IsNullOrWhiteSpace(ingredient.Unit))
+                throw new ArgumentException("A unidade de medida do ingrediente é obrigatória.");
+
+            if (Ingredients.Any(i => i.IngredientId == ingredient.IngredientId))
+                throw new InvalidOperationException("Este ingrediente já foi adicionado à receita.");
+
             Ingredients.Add(ingredient);
         }
     }

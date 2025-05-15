@@ -1,0 +1,1080 @@
+type: collection.insomnia.rest/5.0
+name: My Collection
+meta:
+  id: wrk_bbc55c829c8f420d83391bbdafe32d55
+  created: 1747001435702
+  modified: 1747001435702
+collection:
+  - name: Restaurant
+    meta:
+      id: fld_f6d01bd9dc714c6b812c4ee76618f9fb
+      created: 1747271247797
+      modified: 1747271266037
+      sortKey: -1747001462250
+    children:
+      - url: "{{ _.base_url }}Restaurant"
+        name: AddRestaurant
+        meta:
+          id: req_826764b559c44ee7890ee5a765e33dd3
+          created: 1747271269460
+          modified: 1747271392850
+          isPrivate: false
+          sortKey: -1747271269460
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"name": "Burger Supreme",
+            	"resume": "Hamburgueria artesanal com carnes selecionadas e molhos exclusivos."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Restaurant/08dd934d-3417-4780-8ec6-ee5c812cf06c"
+        name: GetRestaurantById
+        meta:
+          id: req_aedae13060e44b1da7b081b40445056a
+          created: 1747271422529
+          modified: 1747271458164
+          isPrivate: false
+          sortKey: -1747136366833
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Restaurant"
+        name: GetAllRestaurants
+        meta:
+          id: req_732d323a046b4d87add9edb801df9abf
+          created: 1747271469771
+          modified: 1747271473746
+          isPrivate: false
+          sortKey: -1747068915519.5
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Restaurant"
+        name: UpdateRestaurant
+        meta:
+          id: req_87079e86eaae466aae2679a1d5e44687
+          created: 1747271485518
+          modified: 1747271506293
+          isPrivate: false
+          sortKey: -1747068915419.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"id": "08dd934d-3417-4780-8ec6-ee5c812cf06c",
+            	"name": "Burger Supreme - GO",
+            	"resume": "Hamburgueria artesanal com carnes selecionadas e molhos exclusivos."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Restaurant/08dd934d-83e3-482a-883f-4169fd8bbedc"
+        name: DeleteRestaurant
+        meta:
+          id: req_5171db07cbc8450c94517403407dbd20
+          created: 1747271542744
+          modified: 1747271559685
+          isPrivate: false
+          sortKey: -1747035189812.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: User
+    meta:
+      id: fld_6e80044c8e70450aae86f762d9b94a80
+      created: 1747273642617
+      modified: 1747273642617
+      sortKey: -1747001462200
+    children:
+      - url: "{{ _.base_url }}User/chef"
+        name: AddChef
+        meta:
+          id: req_9ae32245f6c141aa89c08ef88b5f92cd
+          created: 1747273642618
+          modified: 1747273785977
+          isPrivate: false
+          sortKey: -1747271269460
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Carlos Henrique",
+            	"contractDate": "2025-05-15",
+            	"tradeName": "Chef Carlão",
+            	"restaurantId": "08dd934d-3417-4780-8ec6-ee5c812cf06c"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/chef/08dd9353-026a-4c99-8ae7-94f1a810a360"
+        name: GetChefById
+        meta:
+          id: req_abeb303136a24df1a1632f2c7f09c6ab
+          created: 1747273642618
+          modified: 1747273916698
+          isPrivate: false
+          sortKey: -1747136366833
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/chef"
+        name: UpdateChef
+        meta:
+          id: req_92e195c501be4f19859c43aa80727ed1
+          created: 1747273642619
+          modified: 1747274015068
+          isPrivate: false
+          sortKey: -1747068915419.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd9353-026a-4c99-8ae7-94f1a810a360",
+            	"name": "Carlos Henrique",
+            	"contractDate": "2025-05-15",
+            	"tradeName": "Chef Carlão"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/chef"
+        name: GetAllChefs
+        meta:
+          id: req_b4daefc07f874f22b0e26b38a849ea81
+          created: 1747273642619
+          modified: 1747273693902
+          isPrivate: false
+          sortKey: -1747068915519.5
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/chef/08dd9353-403a-427e-8149-82050c1c7aef"
+        name: DeleteChef
+        meta:
+          id: req_4c9965a9a98e493aa10ef006a828f893
+          created: 1747273642620
+          modified: 1747274005337
+          isPrivate: false
+          sortKey: -1747035189812.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/editor"
+        name: AddEditor
+        meta:
+          id: req_4a24496806554ccb80252a004dd3a953
+          created: 1747274041850
+          modified: 1747274154101
+          isPrivate: false
+          sortKey: -1747035189712.75
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Mariana Costa",
+            	"contractDate": "2025-05-15"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/editor/08dd9353-a113-4b25-8217-e3c9b704a602"
+        name: GetEditorById
+        meta:
+          id: req_f0d75c6383704035989efff82466ea6d
+          created: 1747274056747
+          modified: 1747274182574
+          isPrivate: false
+          sortKey: -1747035189612.75
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/editor"
+        name: GetAllEditors
+        meta:
+          id: req_5b5b8465c0824f4aa870753a58718a10
+          created: 1747274066253
+          modified: 1747274111419
+          isPrivate: false
+          sortKey: -1747035189512.75
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/editor"
+        name: UpdateEditor
+        meta:
+          id: req_d2ca351215bc4567bfbe61bc9907274f
+          created: 1747274074981
+          modified: 1747274237321
+          isPrivate: false
+          sortKey: -1747035189412.75
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd9353-a113-4b25-8217-e3c9b704a602",
+            	"name": "Mariana Costa",
+            	"contractDate": "2025-05-15"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/editor/08dd9353-c448-463a-816d-d7e96cd9412a"
+        name: DeleteEditor
+        meta:
+          id: req_52b68caeaf8e4b60bdf6886dc0686ccf
+          created: 1747274083338
+          modified: 1747274229734
+          isPrivate: false
+          sortKey: -1747035189312.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/taster"
+        name: AddTaster
+        meta:
+          id: req_7aacfae4f7264fcf879c16ffca34f625
+          created: 1747274279144
+          modified: 1747274368938
+          isPrivate: false
+          sortKey: -1747035189212.75
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Felipe Andrade",
+            	"contractDate": "2025-05-15"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/taster/08dd9354-21ba-43d4-813d-6785f1f558c8"
+        name: GetTasterById
+        meta:
+          id: req_9cab265608fc4694812651fbe6c3e305
+          created: 1747274287840
+          modified: 1747274390995
+          isPrivate: false
+          sortKey: -1747035189112.75
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/taster"
+        name: GetAllTasters
+        meta:
+          id: req_ce76ae04f77a4924a4bfba3a79c6afc0
+          created: 1747274298251
+          modified: 1747274331871
+          isPrivate: false
+          sortKey: -1747035189012.75
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/taster"
+        name: UpdateTaster
+        meta:
+          id: req_4b2bbe87c4884badb0e2e6ebd0d5c60a
+          created: 1747274307937
+          modified: 1747274440087
+          isPrivate: false
+          sortKey: -1747035188912.75
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd9354-21ba-43d4-813d-6785f1f558c8",
+            	"name": "Felipe Andrade",
+            	"contractDate": "2025-05-15"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}User/taster/08dd9354-4064-4243-85d8-a47bd3bdf2a3"
+        name: DeleteTaster
+        meta:
+          id: req_65664ef444f04d3cb4ca2b4b43e50dca
+          created: 1747274314512
+          modified: 1747274432802
+          isPrivate: false
+          sortKey: -1747035188812.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Book
+    meta:
+      id: fld_1149e694bcd646f5a15ea1c30c0e3e5f
+      created: 1747275130029
+      modified: 1747275133808
+      sortKey: -1747001462350
+    children:
+      - url: "{{ _.base_url }}Book"
+        name: AddBook
+        meta:
+          id: req_7ad5b5f6824c4f0894a45b58f4c50a3e
+          created: 1747275130029
+          modified: 1747275247353
+          isPrivate: false
+          sortKey: -1747271269460
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"title": "Sabores do Cerrado",
+            	"isbn": "978-85-7525-123-4",
+            	"editorId": "08dd9353-a113-4b25-8217-e3c9b704a602"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Book"
+        name: GetAllBooks
+        meta:
+          id: req_543df750d5324585970c173791552e54
+          created: 1747275130030
+          modified: 1747275169741
+          isPrivate: false
+          sortKey: -1747068915519.5
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Book/08dd9356-2dd2-497a-87c7-d9eda5c99da7"
+        name: GetBookById
+        meta:
+          id: req_bdb6f894875c4fe4892da55c4904530a
+          created: 1747275130030
+          modified: 1747275278573
+          isPrivate: false
+          sortKey: -1747136366833
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Book"
+        name: UpdateBook
+        meta:
+          id: req_5ed78f7b511444a7b591b3cf60e07647
+          created: 1747275130031
+          modified: 1747275320537
+          isPrivate: false
+          sortKey: -1747068915419.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd9356-2dd2-497a-87c7-d9eda5c99da7",
+            	"title": "Sabores do Cerrado",
+            	"isbn": "978-85-7525-123-4",
+            	"editorId": "08dd9353-a113-4b25-8217-e3c9b704a602"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Book/08dd9356-4cf9-41af-811d-9e2e5666f31e"
+        name: DeleteBook
+        meta:
+          id: req_89ec0d3c6077484fad609a25d36e45ea
+          created: 1747275130031
+          modified: 1747275314137
+          isPrivate: false
+          sortKey: -1747035189812.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Category
+    meta:
+      id: fld_1d3ceda3eb59407c82bdd6a2021f444b
+      created: 1747276047166
+      modified: 1747276047166
+      sortKey: -1747001462300
+    children:
+      - url: "{{ _.base_url }}Category"
+        name: AddCategory
+        meta:
+          id: req_c9a8be2e3caa464fa5fb1191409396c6
+          created: 1747276047166
+          modified: 1747276158796
+          isPrivate: false
+          sortKey: -1747271269460
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"description": "Massas"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Category"
+        name: GetAllCategories
+        meta:
+          id: req_0fb378101dd141768b47e61f0b092fa2
+          created: 1747276047167
+          modified: 1747276075740
+          isPrivate: false
+          sortKey: -1747068915519.5
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Category/08dd9358-4c6c-42bc-87b4-aeac32920991"
+        name: GetCategoryById
+        meta:
+          id: req_c7728adb136d4c0c8219b3b8d85bc275
+          created: 1747276047167
+          modified: 1747276173895
+          isPrivate: false
+          sortKey: -1747136366833
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Category"
+        name: UpdateCategory
+        meta:
+          id: req_133746b6ae8b405498942d70dffce799
+          created: 1747276047168
+          modified: 1747276217329
+          isPrivate: false
+          sortKey: -1747068915419.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd9358-4c6c-42bc-87b4-aeac32920991",
+            	"description": "Massas"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Category/08dd9358-6329-4b32-8604-220f7bf9611b"
+        name: DeleteCategory
+        meta:
+          id: req_5f0d69dd01b54bc3a351e62565fa2e7d
+          created: 1747276047168
+          modified: 1747276210827
+          isPrivate: false
+          sortKey: -1747035189812.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Ingredient
+    meta:
+      id: fld_4f0099360a294cc1bf2ee7b3ccace1cb
+      created: 1747276880706
+      modified: 1747279334933
+      sortKey: -1747001462275
+    children:
+      - url: "{{ _.base_url }}Ingredient"
+        name: GetAllIngredients
+        meta:
+          id: req_9e91de24da764336b727ef22396084f6
+          created: 1747276880707
+          modified: 1747276977184
+          isPrivate: false
+          sortKey: -1747068915519.5
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Ingredient"
+        name: AddIngredient
+        meta:
+          id: req_a06a6068edf2483f968f27be4edf4414
+          created: 1747276880707
+          modified: 1747278873355
+          isPrivate: false
+          sortKey: -1747271269460
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Queijo Parmesão"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Ingredient/08dd935a-4e84-47bb-8b72-9c23723ad414"
+        name: GetIngredientById
+        meta:
+          id: req_30871efb7baf443fa3fe9893e4c2d0a5
+          created: 1747276880708
+          modified: 1747277038952
+          isPrivate: false
+          sortKey: -1747136366833
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Ingredient"
+        name: UpdateIngredient
+        meta:
+          id: req_e8a1d941bfd24c9f80f542c651de1e22
+          created: 1747276880708
+          modified: 1747277076482
+          isPrivate: false
+          sortKey: -1747068915419.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd935a-4e84-47bb-8b72-9c23723ad414",
+            	"name": "Queijo Parmesão"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Ingredient/08dd935a-64f5-4aff-8303-1db66c5400cd"
+        name: DeleteIngredient
+        meta:
+          id: req_a1133fe7fc3a4710a0550ab524360873
+          created: 1747276880709
+          modified: 1747277067648
+          isPrivate: false
+          sortKey: -1747035189812.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Recipe
+    meta:
+      id: fld_fce0181fe28244e1abb0f816da3cd967
+      created: 1747278894626
+      modified: 1747279343042
+      sortKey: -1747001462262.5
+    children:
+      - url: "{{ _.base_url }}Recipe"
+        name: GetAllRecipe
+        meta:
+          id: req_38c9d64d94c64eacb0478cf2293b4fd2
+          created: 1747278894627
+          modified: 1747278937239
+          isPrivate: false
+          sortKey: -1747068915519.5
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Recipe"
+        name: AddRecipe
+        meta:
+          id: req_e0f5340a0ecc4cdfbd325a962eb2b364
+          created: 1747278894627
+          modified: 1747279078695
+          isPrivate: false
+          sortKey: -1747271269460
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Bolo de Cenoura",
+            	"creationDate": "2025-05-15",
+            	"chefId": "08dd9353-026a-4c99-8ae7-94f1a810a360",
+            	"bookId": "08dd9356-2dd2-497a-87c7-d9eda5c99da7",
+            	"categoryId": "08dd9358-4c6c-42bc-87b4-aeac32920991",
+            	"ingredients": [
+            		{
+            			"id": "08dd935a-4e84-47bb-8b72-9c23723ad414",
+            			"quantity": 100,
+            			"unit": "gramas"
+            		},
+            		{
+            			"id": "08dd935e-9be8-47f0-8454-dc0db4cddcc4",
+            			"quantity": 200,
+            			"unit": "gramas"
+            		}
+            	]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Recipe/08dd935f-1998-4d1d-8ee7-bb89abbcf104"
+        name: GetRecipeById
+        meta:
+          id: req_a06d7ed28eae4ac4a69d7fb0e6702d69
+          created: 1747278894628
+          modified: 1747279116547
+          isPrivate: false
+          sortKey: -1747136366833
+        method: GET
+        parameters:
+          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Recipe"
+        name: UpdateRecipe
+        meta:
+          id: req_f233ec3dce8f45f594662fa09c4d5282
+          created: 1747278894629
+          modified: 1747279309225
+          isPrivate: false
+          sortKey: -1747068915419.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd935f-1998-4d1d-8ee7-bb89abbcf104",
+            	"name": "Bolo de Cenoura",
+            	"creationDate": "2025-05-15"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Recipe/08dd935f-92ed-4a86-8d1f-d6a42e6b0049"
+        name: DeleteRecipe
+        meta:
+          id: req_ee603c5445704dc0af4407d7be6051b4
+          created: 1747278894630
+          modified: 1747279297036
+          isPrivate: false
+          sortKey: -1747035189812.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_0e4eb2660b4b1c3998eb1eab0ef4f8c3e841e43a
+    created: 1747001435705
+    modified: 1747001435705
+environments:
+  name: Base Environment
+  meta:
+    id: env_0e4eb2660b4b1c3998eb1eab0ef4f8c3e841e43a
+    created: 1747001435704
+    modified: 1747001452871
+    isPrivate: false
+  data:
+    base_url: http://localhost:5000/api/
