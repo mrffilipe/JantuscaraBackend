@@ -8,6 +8,7 @@ namespace Jantuscara.Infrastructure.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
+            services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IRestaurantRepository, RestaurantRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 

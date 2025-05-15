@@ -1,5 +1,7 @@
-﻿using Jantuscara.Application.Interfaces.UseCases.Restaurant;
+﻿using Jantuscara.Application.Interfaces.UseCases.Book;
+using Jantuscara.Application.Interfaces.UseCases.Restaurant;
 using Jantuscara.Application.Interfaces.UseCases.User;
+using Jantuscara.Application.UseCases.Book;
 using Jantuscara.Application.UseCases.Restaurant;
 using Jantuscara.Application.UseCases.User;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +12,12 @@ namespace Jantuscara.Infrastructure.Extensions
     {
         public static IServiceCollection AddUseCases(this IServiceCollection services)
         {
+            services.AddScoped<IAddBookUseCase, AddBookUseCase>();
+            services.AddScoped<IDeleteBookUseCase, DeleteBookUseCase>();
+            services.AddScoped<IGetAllBooksUseCase, GetAllBooksUseCase>();
+            services.AddScoped<IGetBookByIdUseCase, GetBookByIdUseCase>();
+            services.AddScoped<IUpdateBookUseCase, UpdateBookUseCase>();
+
             services.AddScoped<IAddRestaurantUseCase, AddRestaurantUseCase>();
             services.AddScoped<IDeleteRestaurantUseCase, DeleteRestaurantUseCase>();
             services.AddScoped<IGetAllRestaurantsUseCase, GetAllRestaurantsUseCase>();
