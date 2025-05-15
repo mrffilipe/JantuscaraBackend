@@ -1,7 +1,9 @@
 ﻿using Jantuscara.Application.Interfaces.UseCases.Book;
+using Jantuscara.Application.Interfaces.UseCases.Category;
 using Jantuscara.Application.Interfaces.UseCases.Restaurant;
 using Jantuscara.Application.Interfaces.UseCases.User;
 using Jantuscara.Application.UseCases.Book;
+using Jantuscara.Application.UseCases.Category;
 using Jantuscara.Application.UseCases.Restaurant;
 using Jantuscara.Application.UseCases.User;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,12 @@ namespace Jantuscara.Infrastructure.Extensions
             services.AddScoped<IGetAllBooksUseCase, GetAllBooksUseCase>();
             services.AddScoped<IGetBookByIdUseCase, GetBookByIdUseCase>();
             services.AddScoped<IUpdateBookUseCase, UpdateBookUseCase>();
+
+            services.AddScoped<IAddCategoryUseCase, AddCategoryUseCase>();
+            services.AddScoped<IDeleteCategoryUseCase, DeleteCategoryUseCase>();
+            services.AddScoped<IGetAllCategoriesUseCase, GetAllCategoriesUseCase>();
+            services.AddScoped<IGetCategoryByIdUseCase, GetCategoryByIdUseCase>();
+            services.AddScoped<IUpdateCategoryUseCase, UpdateCategoryUseCase>();
 
             services.AddScoped<IAddRestaurantUseCase, AddRestaurantUseCase>();
             services.AddScoped<IDeleteRestaurantUseCase, DeleteRestaurantUseCase>();
