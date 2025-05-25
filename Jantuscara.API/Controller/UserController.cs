@@ -1,7 +1,7 @@
 ﻿using Jantuscara.Application.Common;
 using Jantuscara.Application.DTOs.User;
+using Jantuscara.Application.Interfaces.UseCases.Ingredient.Query;
 using Jantuscara.Application.Interfaces.UseCases.User;
-using Jantuscara.Application.UseCases.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jantuscara.API.Controller
@@ -12,6 +12,7 @@ namespace Jantuscara.API.Controller
         private readonly IGetChefByIdUseCase _getChefByIdUseCase;
         private readonly IGetAllChefsUseCase _getAllChefsUseCase;
         private readonly IGetChefChampionByYearUseCase _getChefChampionByYearUseCase;
+        private readonly IUserQueryRepository _userQueryRepository;
         private readonly IUpdateChefUseCase _updateChefUseCase;
         private readonly IDeleteChefUseCase _deleteChefUseCase;
 
@@ -32,6 +33,7 @@ namespace Jantuscara.API.Controller
             IGetChefByIdUseCase getChefByIdUseCase,
             IGetAllChefsUseCase getAllChefsUseCase,
             IGetChefChampionByYearUseCase getChefChampionByYearUseCase,
+            IUserQueryRepository userQueryRepository,
             IUpdateChefUseCase updateChefUseCase,
             IDeleteChefUseCase deleteChefUseCase,
             IAddTasterUseCase addTasterUseCase,
@@ -49,6 +51,7 @@ namespace Jantuscara.API.Controller
             _getChefByIdUseCase = getChefByIdUseCase;
             _getAllChefsUseCase = getAllChefsUseCase;
             _getChefChampionByYearUseCase = getChefChampionByYearUseCase;
+            _userQueryRepository = userQueryRepository;
             _updateChefUseCase = updateChefUseCase;
             _deleteChefUseCase = deleteChefUseCase;
             _addTasterUseCase = addTasterUseCase;
@@ -92,6 +95,14 @@ namespace Jantuscara.API.Controller
         public async Task<ActionResult<IEnumerable<ChefChampionDto>>> GetChefChampionByYear(int year)
         {
             var result = await _getChefChampionByYearUseCase.ExecuteAsync(year);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("chef/recipe")]
+        public async Task<ActionResult<IEnumerable<OldestChefWithRecipesDto>>> GetOldestChefsWithRecipesAndBooks()
+        {
+            var result = await _userQueryRepository.GetOldestChefsWithRecipesAndBooksAsync();
             return Ok(result);
         }
 

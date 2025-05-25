@@ -58,6 +58,7 @@ namespace Jantuscara.Infrastructure.Extensions
             services.AddScoped<IGetAllEditorsUseCase, GetAllEditorsUseCase>();
             services.AddScoped<IGetAllTastersUseCase, GetAllTastersUseCase>();
             services.AddScoped<IGetChefByIdUseCase, GetChefByIdUseCase>();
+            services.AddScoped<IGetChefChampionByYearUseCase, GetChefChampionByYearUseCase>();
             services.AddScoped<IGetEditorByIdUseCase, GetEditorByIdUseCase>();
             services.AddScoped<IGetTasterByIdUseCase, GetTasterByIdUseCase>();
             services.AddScoped<IUpdateChefUseCase, UpdateChefUseCase>();

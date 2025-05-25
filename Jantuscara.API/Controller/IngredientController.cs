@@ -1,6 +1,7 @@
 ﻿using Jantuscara.Application.Common;
 using Jantuscara.Application.DTOs.Ingredient;
 using Jantuscara.Application.Interfaces.UseCases.Ingredient;
+using Jantuscara.Application.Interfaces.UseCases.Ingredient.Query;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jantuscara.API.Controller
@@ -10,6 +11,7 @@ namespace Jantuscara.API.Controller
         private readonly IAddIngredientUseCase _addIngredientUseCase;
         private readonly IGetIngredientByIdUseCase _getIngredientByIdUseCase;
         private readonly IGetAllIngredientsUseCase _getAllIngredientsUseCase;
+        private readonly IIngredientQueryRepository _ingredientQueryRepository;
         private readonly IUpdateIngredientUseCase _updateIngredientUseCase;
         private readonly IDeleteIngredientUseCase _deleteIngredientUseCase;
 
@@ -17,12 +19,14 @@ namespace Jantuscara.API.Controller
             IAddIngredientUseCase addIngredientUseCase,
             IGetIngredientByIdUseCase getIngredientByIdUseCase,
             IGetAllIngredientsUseCase getAllIngredientsUseCase,
+            IIngredientQueryRepository ingredientQueryRepository,
             IUpdateIngredientUseCase updateIngredientUseCase,
             IDeleteIngredientUseCase deleteIngredientUseCase)
         {
             _addIngredientUseCase = addIngredientUseCase;
             _getIngredientByIdUseCase = getIngredientByIdUseCase;
             _getAllIngredientsUseCase = getAllIngredientsUseCase;
+            _ingredientQueryRepository = ingredientQueryRepository;
             _updateIngredientUseCase = updateIngredientUseCase;
             _deleteIngredientUseCase = deleteIngredientUseCase;
         }
@@ -46,6 +50,14 @@ namespace Jantuscara.API.Controller
         public async Task<ActionResult<IEnumerable<IngredientDto>>> GetAllIngredient()
         {
             var result = await _getAllIngredientsUseCase.ExecuteAsync();
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("recipe/{id:guid}")]
+        public async Task<ActionResult<IEnumerable<IngredientCategoryCountDto>>> GetRecipeCountByIngredient(Guid id)
+        {
+            var result = await _ingredientQueryRepository.GetRecipeCountByIngredientGroupedByCategoryAsync(id);
             return Ok(result);
         }
 
