@@ -1,6 +1,7 @@
 ﻿using Jantuscara.Application.Common;
 using Jantuscara.Application.DTOs.User;
 using Jantuscara.Application.Interfaces.UseCases.User;
+using Jantuscara.Application.UseCases.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jantuscara.API.Controller
@@ -10,6 +11,7 @@ namespace Jantuscara.API.Controller
         private readonly IAddChefUseCase _addChefUseCase;
         private readonly IGetChefByIdUseCase _getChefByIdUseCase;
         private readonly IGetAllChefsUseCase _getAllChefsUseCase;
+        private readonly IGetChefChampionByYearUseCase _getChefChampionByYearUseCase;
         private readonly IUpdateChefUseCase _updateChefUseCase;
         private readonly IDeleteChefUseCase _deleteChefUseCase;
 
@@ -29,6 +31,7 @@ namespace Jantuscara.API.Controller
             IAddChefUseCase addChefUseCase,
             IGetChefByIdUseCase getChefByIdUseCase,
             IGetAllChefsUseCase getAllChefsUseCase,
+            IGetChefChampionByYearUseCase getChefChampionByYearUseCase,
             IUpdateChefUseCase updateChefUseCase,
             IDeleteChefUseCase deleteChefUseCase,
             IAddTasterUseCase addTasterUseCase,
@@ -45,6 +48,7 @@ namespace Jantuscara.API.Controller
             _addChefUseCase = addChefUseCase;
             _getChefByIdUseCase = getChefByIdUseCase;
             _getAllChefsUseCase = getAllChefsUseCase;
+            _getChefChampionByYearUseCase = getChefChampionByYearUseCase;
             _updateChefUseCase = updateChefUseCase;
             _deleteChefUseCase = deleteChefUseCase;
             _addTasterUseCase = addTasterUseCase;
@@ -80,6 +84,14 @@ namespace Jantuscara.API.Controller
         public async Task<ActionResult<IEnumerable<ChefDto>>> GetAllChef()
         {
             var result = await _getAllChefsUseCase.ExecuteAsync();
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("chef/{year:int}")]
+        public async Task<ActionResult<IEnumerable<ChefChampionDto>>> GetChefChampionByYear(int year)
+        {
+            var result = await _getChefChampionByYearUseCase.ExecuteAsync(year);
             return Ok(result);
         }
 

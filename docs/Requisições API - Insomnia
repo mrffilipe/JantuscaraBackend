@@ -1,84 +1,37 @@
 type: collection.insomnia.rest/5.0
 name: My Collection
 meta:
-  id: wrk_bbc55c829c8f420d83391bbdafe32d55
-  created: 1747001435702
-  modified: 1747001435702
+  id: wrk_03f54e9c298b489e89318402788c4393
+  created: 1745289017509
+  modified: 1745289017509
 collection:
-  - name: Restaurant
+  - name: CityHall
     meta:
-      id: fld_f6d01bd9dc714c6b812c4ee76618f9fb
-      created: 1747271247797
-      modified: 1747271266037
-      sortKey: -1747001462250
+      id: fld_c8ebcedabb3a43f29d3df39f8def1dd7
+      created: 1745289055765
+      modified: 1745442351129
+      sortKey: -1745289055765
     children:
-      - url: "{{ _.base_url }}Restaurant"
-        name: AddRestaurant
+      - url: "{{ _.base_url }}CityHall"
+        name: GetCityHallDetails
         meta:
-          id: req_826764b559c44ee7890ee5a765e33dd3
-          created: 1747271269460
-          modified: 1747271392850
+          id: req_e11d06fbf6d4464f9baa40c41bb0a478
+          created: 1745289058366
+          modified: 1746695384023
           isPrivate: false
-          sortKey: -1747271269460
-        method: POST
-        body:
-          mimeType: application/json
-          text: >-
-            {
-            	"name": "Burger Supreme",
-            	"resume": "Hamburgueria artesanal com carnes selecionadas e molhos exclusivos."
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Restaurant/08dd934d-3417-4780-8ec6-ee5c812cf06c"
-        name: GetRestaurantById
-        meta:
-          id: req_aedae13060e44b1da7b081b40445056a
-          created: 1747271422529
-          modified: 1747271458164
-          isPrivate: false
-          sortKey: -1747136366833
+          sortKey: -1745289058366
         method: GET
         parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
             disabled: false
         headers:
           - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Restaurant"
-        name: GetAllRestaurants
-        meta:
-          id: req_732d323a046b4d87add9edb801df9abf
-          created: 1747271469771
-          modified: 1747271473746
-          isPrivate: false
-          sortKey: -1747068915519.5
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
             disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -87,28 +40,39 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}Restaurant"
-        name: UpdateRestaurant
+      - url: "{{ _.base_url }}CityHall"
+        name: EditCityHall
         meta:
-          id: req_87079e86eaae466aae2679a1d5e44687
-          created: 1747271485518
-          modified: 1747271506293
+          id: req_bb77911ef223483da1346bffb0ed768b
+          created: 1745289744556
+          modified: 1747709159072
           isPrivate: false
-          sortKey: -1747068915419.5
+          sortKey: -1745289058316
         method: PUT
         body:
           mimeType: application/json
           text: >-
             {
-            	"id": "08dd934d-3417-4780-8ec6-ee5c812cf06c",
-            	"name": "Burger Supreme - GO",
-            	"resume": "Hamburgueria artesanal com carnes selecionadas e molhos exclusivos."
+            	"name": "Prefeitura Municipal de Santa Aurora",
+            	"cnpj": "12.345.678/0001-90",
+            	"phone": "(62) 3456-7890",
+            	"email": "contato@santaaurora.go.gov.br",
+            	"address": "Praça Central, 123 - Centro, Santa Aurora - GO, 74000-000"
             }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
         headers:
           - name: Content-Type
             value: application/json
+            id: pair_42eebf9d80514cc6b94e47a71bac6033
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_e450dd8877324c06a03bdced3ba0f631
+          - id: pair_709e14b6d4ce4895956035ecbe2845eb
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -117,18 +81,26 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}Restaurant/08dd934d-83e3-482a-883f-4169fd8bbedc"
-        name: DeleteRestaurant
+      - url: "{{ _.base_url }}CityHall/admins"
+        name: GetAllAdmins
         meta:
-          id: req_5171db07cbc8450c94517403407dbd20
-          created: 1747271542744
-          modified: 1747271559685
+          id: req_e63ce366b3984e268727bb0e5008ce44
+          created: 1747767643292
+          modified: 1747767647880
           isPrivate: false
-          sortKey: -1747035189812.75
-        method: DELETE
+          sortKey: -1745289058216
+        method: GET
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
         headers:
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -137,36 +109,51 @@ collection:
             send: true
             store: true
           rebuildPath: true
-  - name: User
+  - name: Auth
     meta:
-      id: fld_6e80044c8e70450aae86f762d9b94a80
-      created: 1747273642617
-      modified: 1747273642617
-      sortKey: -1747001462200
+      id: fld_f36d873481fa4d50b1ea1701cdcc48d9
+      created: 1745442277076
+      modified: 1747851160669
+      sortKey: -1745442277076
     children:
-      - url: "{{ _.base_url }}User/chef"
-        name: AddChef
+      - url: "{{keykloak_base_url}}realms/Kloke/protocol/openid-connect/token"
+        name: LoginSystemAdminUser
         meta:
-          id: req_9ae32245f6c141aa89c08ef88b5f92cd
-          created: 1747273642618
-          modified: 1747273785977
+          id: req_6d592c3ae00c49a0b751c76434a6b84d
+          created: 1745442279385
+          modified: 1747711578305
           isPrivate: false
-          sortKey: -1747271269460
+          sortKey: -1745442279385
         method: POST
         body:
-          mimeType: application/json
-          text: |-
-            {
-            	"name": "Carlos Henrique",
-            	"contractDate": "2025-05-15",
-            	"tradeName": "Chef Carlão",
-            	"restaurantId": "08dd934d-3417-4780-8ec6-ee5c812cf06c"
-            }
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - id: pair_087359e34a2041e781353c9e66154e4f
+              name: client_id
+              value: kloke-api
+              disabled: false
+            - id: pair_abb1367f88654426b9fb7e2f2eade040
+              name: client_secret
+              value: "{{keykloak_client_secret}}"
+              disabled: false
+            - id: pair_00a4063c1e5e40048f56c9cbbaed4afc
+              name: grant_type
+              value: password
+              disabled: false
+            - id: pair_94d63ec8c119409e924c85c749a430e5
+              name: username
+              value: klokeadmin
+              disabled: false
+            - id: pair_4679996e48bd4235b55d75e6992b330c
+              name: password
+              value: Kloke@admin123
+              disabled: false
         headers:
           - name: Content-Type
-            value: application/json
+            value: application/x-www-form-urlencoded
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_b7fb9bdc988f43f1bc3f5a49ebea34be
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -175,124 +162,44 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}User/chef/08dd9353-026a-4c99-8ae7-94f1a810a360"
-        name: GetChefById
+      - url: "{{keykloak_base_url}}realms/Kloke/protocol/openid-connect/token"
+        name: LoginCityHallUser
         meta:
-          id: req_abeb303136a24df1a1632f2c7f09c6ab
-          created: 1747273642618
-          modified: 1747273916698
+          id: req_2d8fc1168c9246a98f780c51b347885d
+          created: 1745528111379
+          modified: 1747711583314
           isPrivate: false
-          sortKey: -1747136366833
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/chef"
-        name: UpdateChef
-        meta:
-          id: req_92e195c501be4f19859c43aa80727ed1
-          created: 1747273642619
-          modified: 1747274015068
-          isPrivate: false
-          sortKey: -1747068915419.5
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"id": "08dd9353-026a-4c99-8ae7-94f1a810a360",
-            	"name": "Carlos Henrique",
-            	"contractDate": "2025-05-15",
-            	"tradeName": "Chef Carlão"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/chef"
-        name: GetAllChefs
-        meta:
-          id: req_b4daefc07f874f22b0e26b38a849ea81
-          created: 1747273642619
-          modified: 1747273693902
-          isPrivate: false
-          sortKey: -1747068915519.5
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/chef/08dd9353-403a-427e-8149-82050c1c7aef"
-        name: DeleteChef
-        meta:
-          id: req_4c9965a9a98e493aa10ef006a828f893
-          created: 1747273642620
-          modified: 1747274005337
-          isPrivate: false
-          sortKey: -1747035189812.75
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/editor"
-        name: AddEditor
-        meta:
-          id: req_4a24496806554ccb80252a004dd3a953
-          created: 1747274041850
-          modified: 1747274154101
-          isPrivate: false
-          sortKey: -1747035189712.75
+          sortKey: -1745365668900.5
         method: POST
         body:
-          mimeType: application/json
-          text: |-
-            {
-            	"name": "Mariana Costa",
-            	"contractDate": "2025-05-15"
-            }
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - id: pair_087359e34a2041e781353c9e66154e4f
+              name: client_id
+              value: kloke-api
+              disabled: false
+            - id: pair_abb1367f88654426b9fb7e2f2eade040
+              name: client_secret
+              value: "{{keykloak_client_secret}}"
+              disabled: false
+            - id: pair_00a4063c1e5e40048f56c9cbbaed4afc
+              name: grant_type
+              value: password
+              disabled: false
+            - id: pair_94d63ec8c119409e924c85c749a430e5
+              name: username
+              value: lucas.martins@example.com
+              disabled: false
+            - id: pair_4679996e48bd4235b55d75e6992b330c
+              name: password
+              value: SenhaForte123!
+              disabled: false
         headers:
           - name: Content-Type
-            value: application/json
+            value: application/x-www-form-urlencoded
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_b7fb9bdc988f43f1bc3f5a49ebea34be
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -301,123 +208,44 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}User/editor/08dd9353-a113-4b25-8217-e3c9b704a602"
-        name: GetEditorById
+      - url: "{{keykloak_base_url}}realms/Kloke/protocol/openid-connect/token"
+        name: LoginSchoolUser
         meta:
-          id: req_f0d75c6383704035989efff82466ea6d
-          created: 1747274056747
-          modified: 1747274182574
+          id: req_fffac46bc1ec44efbfbd682fe9622120
+          created: 1746695685112
+          modified: 1747711585974
           isPrivate: false
-          sortKey: -1747035189612.75
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/editor"
-        name: GetAllEditors
-        meta:
-          id: req_5b5b8465c0824f4aa870753a58718a10
-          created: 1747274066253
-          modified: 1747274111419
-          isPrivate: false
-          sortKey: -1747035189512.75
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/editor"
-        name: UpdateEditor
-        meta:
-          id: req_d2ca351215bc4567bfbe61bc9907274f
-          created: 1747274074981
-          modified: 1747274237321
-          isPrivate: false
-          sortKey: -1747035189412.75
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"id": "08dd9353-a113-4b25-8217-e3c9b704a602",
-            	"name": "Mariana Costa",
-            	"contractDate": "2025-05-15"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/editor/08dd9353-c448-463a-816d-d7e96cd9412a"
-        name: DeleteEditor
-        meta:
-          id: req_52b68caeaf8e4b60bdf6886dc0686ccf
-          created: 1747274083338
-          modified: 1747274229734
-          isPrivate: false
-          sortKey: -1747035189312.75
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/taster"
-        name: AddTaster
-        meta:
-          id: req_7aacfae4f7264fcf879c16ffca34f625
-          created: 1747274279144
-          modified: 1747274368938
-          isPrivate: false
-          sortKey: -1747035189212.75
+          sortKey: -1745327363683.25
         method: POST
         body:
-          mimeType: application/json
-          text: |-
-            {
-            	"name": "Felipe Andrade",
-            	"contractDate": "2025-05-15"
-            }
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - id: pair_087359e34a2041e781353c9e66154e4f
+              name: client_id
+              value: kloke-api
+              disabled: false
+            - id: pair_abb1367f88654426b9fb7e2f2eade040
+              name: client_secret
+              value: "{{keykloak_client_secret}}"
+              disabled: false
+            - id: pair_00a4063c1e5e40048f56c9cbbaed4afc
+              name: grant_type
+              value: password
+              disabled: false
+            - id: pair_94d63ec8c119409e924c85c749a430e5
+              name: username
+              value: bruno.almeida@escolasolnascente.edu.br
+              disabled: false
+            - id: pair_4679996e48bd4235b55d75e6992b330c
+              name: password
+              value: SenhaSegura@2025
+              disabled: false
         headers:
           - name: Content-Type
-            value: application/json
+            value: application/x-www-form-urlencoded
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_b7fb9bdc988f43f1bc3f5a49ebea34be
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -426,74 +254,44 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}User/taster/08dd9354-21ba-43d4-813d-6785f1f558c8"
-        name: GetTasterById
+      - url: "{{keykloak_base_url}}realms/Kloke/protocol/openid-connect/token"
+        name: LoginStudentUser
         meta:
-          id: req_9cab265608fc4694812651fbe6c3e305
-          created: 1747274287840
-          modified: 1747274390995
+          id: req_6287fb65cac34ff1b41ebfae000f09ed
+          created: 1746695938264
+          modified: 1747711592014
           isPrivate: false
-          sortKey: -1747035189112.75
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/taster"
-        name: GetAllTasters
-        meta:
-          id: req_ce76ae04f77a4924a4bfba3a79c6afc0
-          created: 1747274298251
-          modified: 1747274331871
-          isPrivate: false
-          sortKey: -1747035189012.75
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}User/taster"
-        name: UpdateTaster
-        meta:
-          id: req_4b2bbe87c4884badb0e2e6ebd0d5c60a
-          created: 1747274307937
-          modified: 1747274440087
-          isPrivate: false
-          sortKey: -1747035188912.75
-        method: PUT
+          sortKey: -1745308211074.625
+        method: POST
         body:
-          mimeType: application/json
-          text: |-
-            {
-            	"id": "08dd9354-21ba-43d4-813d-6785f1f558c8",
-            	"name": "Felipe Andrade",
-            	"contractDate": "2025-05-15"
-            }
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - id: pair_087359e34a2041e781353c9e66154e4f
+              name: client_id
+              value: kloke-api
+              disabled: false
+            - id: pair_abb1367f88654426b9fb7e2f2eade040
+              name: client_secret
+              value: "{{keykloak_client_secret}}"
+              disabled: false
+            - id: pair_00a4063c1e5e40048f56c9cbbaed4afc
+              name: grant_type
+              value: password
+              disabled: false
+            - id: pair_94d63ec8c119409e924c85c749a430e5
+              name: username
+              value: mateus.silveira@escolasolnascente.edu.br
+              disabled: false
+            - id: pair_4679996e48bd4235b55d75e6992b330c
+              name: password
+              value: Senha123@2025
+              disabled: false
         headers:
           - name: Content-Type
-            value: application/json
+            value: application/x-www-form-urlencoded
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_b7fb9bdc988f43f1bc3f5a49ebea34be
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -502,18 +300,44 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}User/taster/08dd9354-4064-4243-85d8-a47bd3bdf2a3"
-        name: DeleteTaster
+      - url: "{{keykloak_base_url}}realms/Kloke/protocol/openid-connect/token"
+        name: LoginTeacherUser
         meta:
-          id: req_65664ef444f04d3cb4ca2b4b43e50dca
-          created: 1747274314512
-          modified: 1747274432802
+          id: req_076c20994cba4843a18ca480b6026f8d
+          created: 1746695978122
+          modified: 1747711588510
           isPrivate: false
-          sortKey: -1747035188812.75
-        method: DELETE
+          sortKey: -1745317787378.9375
+        method: POST
+        body:
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - id: pair_087359e34a2041e781353c9e66154e4f
+              name: client_id
+              value: kloke-api
+              disabled: false
+            - id: pair_abb1367f88654426b9fb7e2f2eade040
+              name: client_secret
+              value: "{{keykloak_client_secret}}"
+              disabled: false
+            - id: pair_00a4063c1e5e40048f56c9cbbaed4afc
+              name: grant_type
+              value: password
+              disabled: false
+            - id: pair_94d63ec8c119409e924c85c749a430e5
+              name: username
+              value: juliana.costa@escolasolnascente.edu.br
+              disabled: false
+            - id: pair_4679996e48bd4235b55d75e6992b330c
+              name: password
+              value: SenhaForte@2025
+              disabled: false
         headers:
+          - name: Content-Type
+            value: application/x-www-form-urlencoded
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_b7fb9bdc988f43f1bc3f5a49ebea34be
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -522,58 +346,119 @@ collection:
             send: true
             store: true
           rebuildPath: true
-  - name: Book
+      - url: "{{keykloak_base_url}}realms/Kloke/protocol/openid-connect/token"
+        name: LoginResponsibleUser
+        meta:
+          id: req_8d1b5be72b664b03aa40d1677a6c5a7d
+          created: 1747710944545
+          modified: 1747711606813
+          isPrivate: false
+          sortKey: -1745298634795.3125
+        method: POST
+        body:
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - id: pair_087359e34a2041e781353c9e66154e4f
+              name: client_id
+              value: kloke-api
+              disabled: false
+            - id: pair_abb1367f88654426b9fb7e2f2eade040
+              name: client_secret
+              value: "{{keykloak_client_secret}}"
+              disabled: false
+            - id: pair_00a4063c1e5e40048f56c9cbbaed4afc
+              name: grant_type
+              value: password
+              disabled: false
+            - id: pair_94d63ec8c119409e924c85c749a430e5
+              name: username
+              value: paulo.augusto@escolasolnascente.edu.br
+              disabled: false
+            - id: pair_4679996e48bd4235b55d75e6992b330c
+              name: password
+              value: Senha123@2025
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: application/x-www-form-urlencoded
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_b7fb9bdc988f43f1bc3f5a49ebea34be
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: SystemAdminCityHall
     meta:
-      id: fld_1149e694bcd646f5a15ea1c30c0e3e5f
-      created: 1747275130029
-      modified: 1747275133808
-      sortKey: -1747001462350
+      id: fld_3dd70eb574b142709005e993e8dfd6b2
+      created: 1745526635546
+      modified: 1747709015338
+      sortKey: -1745365666420.5
     children:
-      - url: "{{ _.base_url }}Book"
-        name: AddBook
+      - url: "{{ _.base_url }}SystemAdmin/cityhalls"
+        name: GetCityHalls
         meta:
-          id: req_7ad5b5f6824c4f0894a45b58f4c50a3e
-          created: 1747275130029
-          modified: 1747275247353
+          id: req_190fdb9d6b4c4ff89c10efc035b39486
+          created: 1745526635547
+          modified: 1747090471710
           isPrivate: false
-          sortKey: -1747271269460
+          sortKey: -1745289058416
+        method: GET
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url
+          }}SystemAdmin/cityhalls/08dd9747-cc65-4ddd-840a-dad451be9c74/admin"
+        name: AddAdminToCityHall
+        meta:
+          id: req_e94fd9f8a1c44c67995c50286eaeaa58
+          created: 1745527187183
+          modified: 1747708940506
+          isPrivate: false
+          sortKey: -1745289058391
         method: POST
         body:
           mimeType: application/json
           text: |-
             {
-            	"title": "Sabores do Cerrado",
-            	"isbn": "978-85-7525-123-4",
-            	"editorId": "08dd9353-a113-4b25-8217-e3c9b704a602"
+            	"firstName": "Lucas",
+            	"lastName": "Martins",
+            	"email": "lucas.martins@example.com",
+            	"password": "SenhaForte123!"
             }
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
         headers:
           - name: Content-Type
             value: application/json
           - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Book"
-        name: GetAllBooks
-        meta:
-          id: req_543df750d5324585970c173791552e54
-          created: 1747275130030
-          modified: 1747275169741
-          isPrivate: false
-          sortKey: -1747068915519.5
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
             disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -582,52 +467,38 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}Book/08dd9356-2dd2-497a-87c7-d9eda5c99da7"
-        name: GetBookById
+      - url: "{{ _.base_url }}SystemAdmin/cityhalls"
+        name: AddCityHall
         meta:
-          id: req_bdb6f894875c4fe4892da55c4904530a
-          created: 1747275130030
-          modified: 1747275278573
+          id: req_cc466e970e9347b9b4197eb2cbf3af29
+          created: 1745527723645
+          modified: 1747708680040
           isPrivate: false
-          sortKey: -1747136366833
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Book"
-        name: UpdateBook
-        meta:
-          id: req_5ed78f7b511444a7b591b3cf60e07647
-          created: 1747275130031
-          modified: 1747275320537
-          isPrivate: false
-          sortKey: -1747068915419.5
-        method: PUT
+          sortKey: -1745289058516
+        method: POST
         body:
           mimeType: application/json
-          text: |-
+          text: >-
             {
-            	"id": "08dd9356-2dd2-497a-87c7-d9eda5c99da7",
-            	"title": "Sabores do Cerrado",
-            	"isbn": "978-85-7525-123-4",
-            	"editorId": "08dd9353-a113-4b25-8217-e3c9b704a602"
+            	"name": "Prefeitura Municipal de Santa Aurora",
+            	"cnpj": "12.345.678/0001-90",
+            	"phone": "(62) 3456-7890",
+            	"email": "contato@santaaurora.go.gov.br",
+            	"address": "Praça Central, 123 - Centro, Santa Aurora - GO, 74000-000"
             }
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
         headers:
           - name: Content-Type
             value: application/json
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -636,18 +507,27 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}Book/08dd9356-4cf9-41af-811d-9e2e5666f31e"
-        name: DeleteBook
+      - url: "{{ _.base_url
+          }}SystemAdmin/cityhalls/08dd9747-cc65-4ddd-840a-dad451be9c74"
+        name: GetCityHallById
         meta:
-          id: req_89ec0d3c6077484fad609a25d36e45ea
-          created: 1747275130031
-          modified: 1747275314137
+          id: req_c797c6066d5f4b15b9ff59c9fe5cd229
+          created: 1747708889956
+          modified: 1747708905674
           isPrivate: false
-          sortKey: -1747035189812.75
-        method: DELETE
+          sortKey: -1745289058466
+        method: GET
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
         headers:
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -656,332 +536,55 @@ collection:
             send: true
             store: true
           rebuildPath: true
-  - name: Category
+  - name: BlockingRules
     meta:
-      id: fld_1d3ceda3eb59407c82bdd6a2021f444b
-      created: 1747276047166
-      modified: 1747276047166
-      sortKey: -1747001462300
+      id: fld_97f1782ca89745cd9e59e42b40f6ac44
+      created: 1746537680331
+      modified: 1746537680331
+      sortKey: -1745289055715
     children:
-      - url: "{{ _.base_url }}Category"
-        name: AddCategory
+      - url: "{{ _.base_url }}BlockingRules/global"
+        name: SetGlobalBlockingRules
         meta:
-          id: req_c9a8be2e3caa464fa5fb1191409396c6
-          created: 1747276047166
-          modified: 1747276158796
+          id: req_dc53f262b2db4a13924ac8998e4bf095
+          created: 1746537680332
+          modified: 1746646261787
           isPrivate: false
-          sortKey: -1747271269460
+          sortKey: -1745289058366
         method: POST
         body:
           mimeType: application/json
           text: |-
             {
-            	"description": "Massas"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Category"
-        name: GetAllCategories
-        meta:
-          id: req_0fb378101dd141768b47e61f0b092fa2
-          created: 1747276047167
-          modified: 1747276075740
-          isPrivate: false
-          sortKey: -1747068915519.5
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Category/08dd9358-4c6c-42bc-87b4-aeac32920991"
-        name: GetCategoryById
-        meta:
-          id: req_c7728adb136d4c0c8219b3b8d85bc275
-          created: 1747276047167
-          modified: 1747276173895
-          isPrivate: false
-          sortKey: -1747136366833
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Category"
-        name: UpdateCategory
-        meta:
-          id: req_133746b6ae8b405498942d70dffce799
-          created: 1747276047168
-          modified: 1747276217329
-          isPrivate: false
-          sortKey: -1747068915419.5
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"id": "08dd9358-4c6c-42bc-87b4-aeac32920991",
-            	"description": "Massas"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Category/08dd9358-6329-4b32-8604-220f7bf9611b"
-        name: DeleteCategory
-        meta:
-          id: req_5f0d69dd01b54bc3a351e62565fa2e7d
-          created: 1747276047168
-          modified: 1747276210827
-          isPrivate: false
-          sortKey: -1747035189812.75
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Ingredient
-    meta:
-      id: fld_4f0099360a294cc1bf2ee7b3ccace1cb
-      created: 1747276880706
-      modified: 1747279334933
-      sortKey: -1747001462275
-    children:
-      - url: "{{ _.base_url }}Ingredient"
-        name: GetAllIngredients
-        meta:
-          id: req_9e91de24da764336b727ef22396084f6
-          created: 1747276880707
-          modified: 1747276977184
-          isPrivate: false
-          sortKey: -1747068915519.5
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Ingredient"
-        name: AddIngredient
-        meta:
-          id: req_a06a6068edf2483f968f27be4edf4414
-          created: 1747276880707
-          modified: 1747278873355
-          isPrivate: false
-          sortKey: -1747271269460
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"name": "Queijo Parmesão"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Ingredient/08dd935a-4e84-47bb-8b72-9c23723ad414"
-        name: GetIngredientById
-        meta:
-          id: req_30871efb7baf443fa3fe9893e4c2d0a5
-          created: 1747276880708
-          modified: 1747277038952
-          isPrivate: false
-          sortKey: -1747136366833
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Ingredient"
-        name: UpdateIngredient
-        meta:
-          id: req_e8a1d941bfd24c9f80f542c651de1e22
-          created: 1747276880708
-          modified: 1747277076482
-          isPrivate: false
-          sortKey: -1747068915419.5
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"id": "08dd935a-4e84-47bb-8b72-9c23723ad414",
-            	"name": "Queijo Parmesão"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Ingredient/08dd935a-64f5-4aff-8303-1db66c5400cd"
-        name: DeleteIngredient
-        meta:
-          id: req_a1133fe7fc3a4710a0550ab524360873
-          created: 1747276880709
-          modified: 1747277067648
-          isPrivate: false
-          sortKey: -1747035189812.75
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Recipe
-    meta:
-      id: fld_fce0181fe28244e1abb0f816da3cd967
-      created: 1747278894626
-      modified: 1747279343042
-      sortKey: -1747001462262.5
-    children:
-      - url: "{{ _.base_url }}Recipe"
-        name: GetAllRecipe
-        meta:
-          id: req_38c9d64d94c64eacb0478cf2293b4fd2
-          created: 1747278894627
-          modified: 1747278937239
-          isPrivate: false
-          sortKey: -1747068915519.5
-        method: GET
-        parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.1.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}Recipe"
-        name: AddRecipe
-        meta:
-          id: req_e0f5340a0ecc4cdfbd325a962eb2b364
-          created: 1747278894627
-          modified: 1747279078695
-          isPrivate: false
-          sortKey: -1747271269460
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"name": "Bolo de Cenoura",
-            	"creationDate": "2025-05-15",
-            	"chefId": "08dd9353-026a-4c99-8ae7-94f1a810a360",
-            	"bookId": "08dd9356-2dd2-497a-87c7-d9eda5c99da7",
-            	"categoryId": "08dd9358-4c6c-42bc-87b4-aeac32920991",
-            	"ingredients": [
+            	"days": [
+            		1,
+            		2,
+            		3,
+            		4,
+            		5
+            	],
+            	"startTime": "2025-05-06T13:24:44.708Z",
+            	"endTime": "2025-05-10T13:24:44.708Z",
+            	"allowedApps": [
             		{
-            			"id": "08dd935a-4e84-47bb-8b72-9c23723ad414",
-            			"quantity": 100,
-            			"unit": "gramas"
-            		},
-            		{
-            			"id": "08dd935e-9be8-47f0-8454-dc0db4cddcc4",
-            			"quantity": 200,
-            			"unit": "gramas"
+            			"appName": "Teste",
+            			"packageName": "com.teste.app"
             		}
             	]
             }
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
         headers:
           - name: Content-Type
             value: application/json
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -990,21 +593,26 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}Recipe/08dd935f-1998-4d1d-8ee7-bb89abbcf104"
-        name: GetRecipeById
+      - url: "{{ _.base_url }}BlockingRules/global"
+        name: GetGlobalBlockingRules
         meta:
-          id: req_a06d7ed28eae4ac4a69d7fb0e6702d69
-          created: 1747278894628
-          modified: 1747279116547
+          id: req_979b6a0080dc4438a78d2f864670beb3
+          created: 1746539176354
+          modified: 1746539186663
           isPrivate: false
-          sortKey: -1747136366833
+          sortKey: -1745289058466
         method: GET
         parameters:
-          - id: pair_015c4b2b972248e59e5069ded3e2a51f
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
             disabled: false
         headers:
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1013,28 +621,579 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}Recipe"
-        name: UpdateRecipe
+  - name: School
+    meta:
+      id: fld_52d08717b4a64ab5b186f298bf21c55a
+      created: 1746695560779
+      modified: 1746695560779
+      sortKey: -1745289055740
+    children:
+      - url: "{{ _.base_url }}School"
+        name: GetSchoolDetails
         meta:
-          id: req_f233ec3dce8f45f594662fa09c4d5282
-          created: 1747278894629
-          modified: 1747279309225
+          id: req_2407d4c1451e4650afcdc04b78f5cbd0
+          created: 1746695891767
+          modified: 1747709414987
           isPrivate: false
-          sortKey: -1747068915419.5
+          sortKey: -1745289058066
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}School"
+        name: UpdateSchool
+        meta:
+          id: req_075249425508451abc61cc24d5393140
+          created: 1747709437622
+          modified: 1747709493623
+          isPrivate: false
+          sortKey: -1745289058016
+        method: PUT
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"id": "08dd9748-9da4-429d-8297-a16b28d085bb",
+            	"name": "Escola Municipal Sol Nascente",
+            	"phone": "(62) 3598-5678",
+            	"email": "contato@solnascente.edu.br",
+            	"address": "Avenida das Palmeiras, 789 - Bairro Esperança, Nova Alvorada - GO, 74820-500"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}School/admins"
+        name: GetAllAdmins
+        meta:
+          id: req_e7dc6ade2cac4d778e81781fe10953a1
+          created: 1747767748323
+          modified: 1747767752354
+          isPrivate: false
+          sortKey: -1745289057916
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: CityHallSchools
+    meta:
+      id: fld_50e331143cf54f6d9ff07740dcb5ee16
+      created: 1747709063699
+      modified: 1747709063699
+      sortKey: -1745289055752.5
+    children:
+      - url: "{{ _.base_url }}CityHall/schools/08dd9748-9da4-429d-8297-a16b28d085bb"
+        name: GetSchoolDetails
+        meta:
+          id: req_66f15a7217d9430fb5a7d72b0a8e1626
+          created: 1747709063700
+          modified: 1747709246266
+          isPrivate: false
+          sortKey: -1745289058266
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_3d1881f236744c368d46f292b0a86f5a
+          - id: pair_a1e86f3e6b014742b04bfaac579f92ff
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}CityHall/schools"
+        name: AddSchoolToCityHall
+        meta:
+          id: req_693c95b85ee04499b143f934ff7b7011
+          created: 1747709063701
+          modified: 1747709219730
+          isPrivate: false
+          sortKey: -1745289058366
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"name": "Escola Municipal Sol Nascente",
+            	"phone": "(62) 3598-5678",
+            	"email": "contato@solnascente.edu.br",
+            	"address": "Avenida das Palmeiras, 789 - Bairro Esperança, Nova Alvorada - GO, 74820-500"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}CityHall/schools"
+        name: GetAllSchools
+        meta:
+          id: req_d3ae5507cf2a48df8663537b64b828ec
+          created: 1747709063701
+          modified: 1747709063701
+          isPrivate: false
+          sortKey: -1745289058216
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_3d1881f236744c368d46f292b0a86f5a
+          - id: pair_a1e86f3e6b014742b04bfaac579f92ff
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url
+          }}CityHall/schools/08dd9748-9da4-429d-8297-a16b28d085bb/admin"
+        name: AddAdminToSchool
+        meta:
+          id: req_9c4c9f9f41624d72be5aa73fa1932398
+          created: 1747709063702
+          modified: 1747709269340
+          isPrivate: false
+          sortKey: -1745289058116
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"firstName": "Bruno",
+            	"lastName": "Almeida",
+            	"email": "bruno.almeida@escolasolnascente.edu.br",
+            	"password": "SenhaSegura@2025"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: SchoolClassrooms
+    meta:
+      id: fld_c23e64e6c69b4e1ea77fc2e1332d2a8e
+      created: 1747710394747
+      modified: 1747710394747
+      sortKey: -1745289055718.125
+    children:
+      - url: "{{ _.base_url }}School/classrooms"
+        name: AddClassroom
+        meta:
+          id: req_443c417d7d244427b8b09aaf3c26d6d1
+          created: 1747710394747
+          modified: 1747710493641
+          isPrivate: false
+          sortKey: -1745289058116
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Turma 9 ano A"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}School/classrooms"
+        name: GetAllClassrooms
+        meta:
+          id: req_04c88d9b01af46afaf5fb6c38d968910
+          created: 1747710394748
+          modified: 1747710441475
+          isPrivate: false
+          sortKey: -1745289058091
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}School/classrooms/08dd974b-99dd-4d0d-81a9-559546ced83e"
+        name: GetClassroomDetails
+        meta:
+          id: req_eddf818442a34cf8a1c09a8e01a798d1
+          created: 1747710394748
+          modified: 1747710521815
+          isPrivate: false
+          sortKey: -1745289058078.5
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}School/classrooms/student"
+        name: AddStudentToClassroom
+        meta:
+          id: req_66e8327f000c4b7384044019121c3907
+          created: 1747710394749
+          modified: 1747710649934
+          isPrivate: false
+          sortKey: -1745289057978.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "studentId": "08dd9749-bfb8-46bf-8a19-78adfce5c418",
+              "classroomId": "08dd974b-99dd-4d0d-81a9-559546ced83e"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}School/classrooms/teacher"
+        name: AddTeacherToClassroom
+        meta:
+          id: req_9d8e7319b7064f9d94f105af919a63e1
+          created: 1747710668389
+          modified: 1747710694654
+          isPrivate: false
+          sortKey: -1745289057928.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "teacherId": "08dd974b-0884-443e-80ac-935f1fd9c7fc",
+              "classroomId": "08dd974b-99dd-4d0d-81a9-559546ced83e"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Responsible
+    meta:
+      id: fld_616c9c0c4a4740669f8924eda6bc93bc
+      created: 1747710783725
+      modified: 1747952758820
+      sortKey: -1745289055716.5625
+    children:
+      - url: "{{ _.base_url }}Responsible"
+        name: Add
+        meta:
+          id: req_2ecb0d1d83f64899b48c3697de8e3fe4
+          created: 1747710783726
+          modified: 1747952672049
+          isPrivate: false
+          sortKey: -1745289057972.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"firstName": "Paulo",
+            	"lastName": "Augusto",
+            	"email": "paulo.augusto@escolasolnascente.edu.br"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Responsible"
+        name: GetAll
+        meta:
+          id: req_a5ea526eee3547c7adb495a8d4801676
+          created: 1747710783727
+          modified: 1747952241545
+          isPrivate: false
+          sortKey: -1745289058091
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Responsible/details"
+        name: FindByIdentifier
+        meta:
+          id: req_f0af39a9352d4d8582a9655c6a4f12cd
+          created: 1747710783727
+          modified: 1748108942970
+          isPrivate: false
+          sortKey: -1745289058191
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            name: id
+            value: 08dd9749-bfb8-46bf-8a19-78adfce5c418
+            disabled: false
+          - id: pair_4f880e3d48334f01be1f536d1acc17b9
+            name: email
+            value: paulo.augusto@escolasolnascente.edu.br
+            disabled: false
+          - id: pair_c7c00ebff77c49ed911b49401eecb978
+            name: options.filterByEmail
+            value: "false"
+            disabled: false
+          - id: pair_32e9abbdf8ec48a38be00ac70a274379
+            name: options.includeSchool
+            value: "true"
+            disabled: false
+          - id: pair_bb0f2ba2dd784addaf3735ed17666fdc
+            name: options.includeStudents
+            value: "true"
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Responsible"
+        name: Update
+        meta:
+          id: req_2f0b4c45bd314dc384e50e24e4641487
+          created: 1747952222419
+          modified: 1747952748985
+          isPrivate: false
+          sortKey: -1745289057950.375
         method: PUT
         body:
           mimeType: application/json
           text: |-
             {
-            	"id": "08dd935f-1998-4d1d-8ee7-bb89abbcf104",
-            	"name": "Bolo de Cenoura",
-            	"creationDate": "2025-05-15"
+            	"id": "08dd974c-dd91-4c4f-8e10-18ec5022c41d",
+            	"firstName": "Paulo",
+            	"lastName": "Augusto",
+            	"email": "paulo.augusto@escolasolnascente.edu.br"
             }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
         headers:
           - name: Content-Type
             value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1043,18 +1202,1131 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}Recipe/08dd935f-92ed-4a86-8d1f-d6a42e6b0049"
-        name: DeleteRecipe
+  - name: SystemAdminAllowedApp
+    meta:
+      id: fld_3a45f75a48244af3aab0c4a624dc0e92
+      created: 1747711255573
+      modified: 1747711255573
+      sortKey: -1745327361092.75
+    children:
+      - url: "{{ _.base_url }}SystemAdmin/allowedapps"
+        name: GetApps
         meta:
-          id: req_ee603c5445704dc0af4407d7be6051b4
-          created: 1747278894630
-          modified: 1747279297036
+          id: req_abe43332d54f4fed9766ca3340bd8416
+          created: 1747711255573
+          modified: 1747711304360
           isPrivate: false
-          sortKey: -1747035189812.75
-        method: DELETE
+          sortKey: -1745289058416
+        method: GET
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
         headers:
           - name: User-Agent
-            value: insomnia/11.1.0
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}SystemAdmin/allowedapps"
+        name: UpdateApp
+        meta:
+          id: req_9c7f390d12a24d28932d2a57b74ee18a
+          created: 1747711255574
+          modified: 1747711406399
+          isPrivate: false
+          sortKey: -1745289058391
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd974d-9521-4ed7-8148-bb5113b8d5a5",
+            	"appName": "EduLock",
+            	"packageName": "com.edulock.mobile"
+            }
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}SystemAdmin/allowedapps"
+        name: AddApp
+        meta:
+          id: req_f3bf6f30925d4424b5f075d57566f1b3
+          created: 1747711255574
+          modified: 1747711344642
+          isPrivate: false
+          sortKey: -1745289058516
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"appName": "EduLock",
+            	"packageName": "com.edulock.mobile"
+            }
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url
+          }}SystemAdmin/allowedapps/08dd974d-9521-4ed7-8148-bb5113b8d5a5"
+        name: GetAppById
+        meta:
+          id: req_0acfa026fc104c688788e675e4da5b4b
+          created: 1747711255575
+          modified: 1747711373257
+          isPrivate: false
+          sortKey: -1745289058466
+        method: GET
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: BlockingRule
+    meta:
+      id: fld_8a2f63e5d4f54649ab1a609b3cf9db16
+      created: 1747772734359
+      modified: 1747772751181
+      sortKey: -1745308208428.875
+    children:
+      - url: "{{ _.base_url }}BlockingRule"
+        name: AddBlockingRule
+        meta:
+          id: req_a605fe98705d4f2f9e085654b53ad9f6
+          created: 1747772734361
+          modified: 1747773648069
+          isPrivate: false
+          sortKey: -1745289058516
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"startTime": "08:00:00",
+            	"endTime": "12:00:00",
+            	"classroomId": "08dd974b-99dd-4d0d-81a9-559546ced83e",
+            	"daysOfWeek": [
+            		0,
+            		3,
+            		5
+            	],
+            	"allowedApps": [
+            		"08dd974d-9521-4ed7-8148-bb5113b8d5a5"
+            	]
+            }
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}BlockingRule/active/08dd9749-bfb8-46bf-8a19-78adfce5c418"
+        name: GetActiveBlockingRule
+        meta:
+          id: req_572db9be9b0047d499101cac924f8d35
+          created: 1747774381489
+          modified: 1747848961229
+          isPrivate: false
+          sortKey: -1745289058491
+        method: GET
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}BlockingRule"
+        name: UpdateBlockingRule
+        meta:
+          id: req_9bb9024fb757450289ef10af8b6da886
+          created: 1747873539047
+          modified: 1747873621351
+          isPrivate: false
+          sortKey: -1745289058391
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd97df-6fbf-402f-8104-278b37f618c5",
+            	"startTime": "09:00:00",
+            	"endTime": "12:00:00"
+            }
+        parameters:
+          - id: pair_04d41daab94047248c809e1aea4e1b80
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_4b5715d0d4d8473db28445862487ee46
+          - id: pair_af39dffc5d4f4ceea0d7fc1330a797a6
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: UnlockRequest
+    meta:
+      id: fld_8c4102c1869640e2b5063b341c42cb49
+      created: 1747786070245
+      modified: 1747786070245
+      sortKey: -1745289055665
+    children:
+      - url: "{{ _.base_url }}UnlockRequest"
+        name: RequestUnlock
+        meta:
+          id: req_1afb0003d3614753935c3c42fa2c6d98
+          created: 1747786070245
+          modified: 1747786408802
+          isPrivate: false
+          sortKey: -1745289058566
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"reason": "Aluno precisa acessar conteúdo educacional temporariamente para avaliação.",
+            	"startTime": "08:00:00",
+            	"endTime": "10:30:00",
+            	"studentId": "08dd9749-bfb8-46bf-8a19-78adfce5c418"
+            }
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}UnlockRequest"
+        name: GetAllUnlockRequests
+        meta:
+          id: req_f4ad8645058646b68b044039a5fd4720
+          created: 1747786070246
+          modified: 1747787141864
+          isPrivate: false
+          sortKey: -1745289058466
+        method: GET
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url
+          }}UnlockRequest/08dd97ff-1acc-4121-810e-36a7ff2d58d9/approve"
+        name: ApproveUnlockRequest
+        meta:
+          id: req_b4fc984653254d33889109c61502bca4
+          created: 1747787563831
+          modified: 1747787757684
+          isPrivate: false
+          sortKey: -1745289058441
+        method: POST
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}UnlockRequest/08dd97ff-8742-46dd-8305-8b6c159c70e8/deny"
+        name: DenyUnlockRequest
+        meta:
+          id: req_383389ec81524407946e0635705ebd14
+          created: 1747787781843
+          modified: 1747787802869
+          isPrivate: false
+          sortKey: -1745289058428.5
+        method: POST
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: StudentException
+    meta:
+      id: fld_ecf92c8a1fef48d1b240bfc9c3dca55e
+      created: 1747788672242
+      modified: 1747788672242
+      sortKey: -1745289055615
+    children:
+      - url: "{{ _.base_url }}School/studentexceptions"
+        name: AddStudentException
+        meta:
+          id: req_de36e1fb0c124024babe984d1f70134a
+          created: 1747788672243
+          modified: 1747789058650
+          isPrivate: false
+          sortKey: -1745289058566
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            	"reason": "Permitir acesso ao app de leitura durante prova simulada.",
+            	"startTime": "13:00:00",
+            	"endTime": "14:30:00",
+            	"allowedApps": [
+            		"a12d34c5-6789-4f01-b234-cd5678ef9012"
+            	]
+            }
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url
+          }}School/studentexceptions/08dd9802-4039-4b82-895c-3d566cb90759"
+        name: GetStudentExceptionById
+        meta:
+          id: req_a12dc950d2764dc081c40fbfa5c06171
+          created: 1747789008293
+          modified: 1747849041070
+          isPrivate: false
+          sortKey: -1745289058541
+        method: GET
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"studentId": "08dd9749-bfb8-46bf-8a19-78adfce5c418",
+            	"reason": "Permitir acesso ao app de leitura durante prova simulada.",
+            	"startTime": "13:00:00",
+            	"endTime": "14:30:00",
+            	"allowedApps": [
+            		"08dd974d-9521-4ed7-8148-bb5113b8d5a5"
+            	]
+            }
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url
+          }}School/studentexceptions/student/08dd9749-bfb8-46bf-8a19-78adfce5c4\
+          18"
+        name: GetAllExceptionsByStudentId
+        meta:
+          id: req_2610f6129b1b41d49aa62758acfffb54
+          created: 1747849064936
+          modified: 1747849095631
+          isPrivate: false
+          sortKey: -1745289058528.5
+        method: GET
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"studentId": "08dd9749-bfb8-46bf-8a19-78adfce5c418",
+            	"reason": "Permitir acesso ao app de leitura durante prova simulada.",
+            	"startTime": "13:00:00",
+            	"endTime": "14:30:00",
+            	"allowedApps": [
+            		"08dd974d-9521-4ed7-8148-bb5113b8d5a5"
+            	]
+            }
+        parameters:
+          - id: pair_8d7013eb9b674a3c8f46b950ecd199f5
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_c65325696bf146948720b2e4eeedac1e
+          - id: pair_cbeef94a9d36413787ca2aacf3b5910e
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Student
+    meta:
+      id: fld_f7252267376d44e7aaf9c5085e67decf
+      created: 1748108852793
+      modified: 1748108852793
+      sortKey: -1745289055715.7812
+    children:
+      - url: "{{ _.base_url }}Student"
+        name: GetAll
+        meta:
+          id: req_9950d487cb004b15b9d259fbd728dbf1
+          created: 1748108852794
+          modified: 1748108857785
+          isPrivate: false
+          sortKey: -1745289058091
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Student"
+        name: Add
+        meta:
+          id: req_a0c92b1a3cbb450facdb3b9d54856771
+          created: 1748108852794
+          modified: 1748108863813
+          isPrivate: false
+          sortKey: -1745289057972.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"firstName": "Paulo",
+            	"lastName": "Augusto",
+            	"email": "paulo.augusto@escolasolnascente.edu.br"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Student/details"
+        name: FindByIdentifier
+        meta:
+          id: req_14f9fb56a0434255863d424c5cfda41f
+          created: 1748108852795
+          modified: 1748109320628
+          isPrivate: false
+          sortKey: -1745289058191
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            name: id
+            value: 08dd9749-bfb8-46bf-8a19-78adfce5c418
+            disabled: false
+          - id: pair_4f880e3d48334f01be1f536d1acc17b9
+            name: email
+            value: paulo.augusto@escolasolnascente.edu.br
+            disabled: false
+          - id: pair_c7c00ebff77c49ed911b49401eecb978
+            name: options.filterByEmail
+            value: "false"
+            disabled: false
+          - id: pair_32e9abbdf8ec48a38be00ac70a274379
+            name: options.includeSchool
+            value: "true"
+            disabled: false
+          - id: pair_bb0f2ba2dd784addaf3735ed17666fdc
+            name: options.includeClassrooms
+            value: "true"
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Student"
+        name: Update
+        meta:
+          id: req_d67d01e08ef2454cb4570eeb8af7a260
+          created: 1748108852796
+          modified: 1748109437064
+          isPrivate: false
+          sortKey: -1745289057950.375
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd9749-bfb8-46bf-8a19-78adfce5c418",
+            	"firstName": "Mateus",
+            	"lastName": "Silveira",
+            	"email": "mateus.silveira@escolasolnascente.edu.br"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Student/classroom/08dd974b-99dd-4d0d-81a9-559546ced83e"
+        name: GetAllByClassroom
+        meta:
+          id: req_6dc4ede42ddd4c91adcf58392b330025
+          created: 1748108902822
+          modified: 1748109040277
+          isPrivate: false
+          sortKey: -1745289058084.75
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Teacher
+    meta:
+      id: fld_2c451dcc03b04a45999eed30ad9e13ba
+      created: 1748117092750
+      modified: 1748117092750
+      sortKey: -1745289055715.3906
+    children:
+      - url: "{{ _.base_url }}Teacher"
+        name: Add
+        meta:
+          id: req_39a88b0037504b9aa870bbd0c8b39d6a
+          created: 1748117092751
+          modified: 1748117284953
+          isPrivate: false
+          sortKey: -1745289057972.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"firstName": "Juliana",
+            	"lastName": "Costa",
+            	"email": "juliana.costa@escolasolnascente.edu.br",
+            	"position": "Professor de matemática",
+            	"experience": "1998-05-20"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Teacher"
+        name: GetAll
+        meta:
+          id: req_a6daaf17c645421a97310a87e5e4e6a7
+          created: 1748117092751
+          modified: 1748117104133
+          isPrivate: false
+          sortKey: -1745289058091
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Teacher/details"
+        name: FindByIdentifier
+        meta:
+          id: req_6adedba6e4584a569ffa1fc8fa3be25b
+          created: 1748117092752
+          modified: 1748117130852
+          isPrivate: false
+          sortKey: -1745289058191
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            name: id
+            value: 08dd974b-0884-443e-80ac-935f1fd9c7fc
+            disabled: false
+          - id: pair_4f880e3d48334f01be1f536d1acc17b9
+            name: email
+            value: paulo.augusto@escolasolnascente.edu.br
+            disabled: false
+          - id: pair_c7c00ebff77c49ed911b49401eecb978
+            name: options.filterByEmail
+            value: "false"
+            disabled: false
+          - id: pair_32e9abbdf8ec48a38be00ac70a274379
+            name: options.includeSchool
+            value: "true"
+            disabled: false
+          - id: pair_bb0f2ba2dd784addaf3735ed17666fdc
+            name: options.includeClassrooms
+            value: "true"
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Teacher/classroom/08dd974b-99dd-4d0d-81a9-559546ced83e"
+        name: GetAllByClassroom
+        meta:
+          id: req_14254a46a1444105a671e4af3e2ca919
+          created: 1748117092753
+          modified: 1748117202627
+          isPrivate: false
+          sortKey: -1745289058084.75
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Teacher"
+        name: Update
+        meta:
+          id: req_443e783788174047985cce5cf2a2c8f5
+          created: 1748117092753
+          modified: 1748117268742
+          isPrivate: false
+          sortKey: -1745289057950.375
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd974b-0884-443e-80ac-935f1fd9c7fc",
+            	"firstName": "Juliana",
+            	"lastName": "Costa",
+            	"email": "juliana.costa@escolasolnascente.edu.br",
+            	"position": "Professor de matemática",
+            	"experience": "1998-05-20"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Classroom
+    meta:
+      id: fld_7ba517ba569c4f9ca3eea2e54a5557d7
+      created: 1748124017331
+      modified: 1748124017331
+      sortKey: -1745289055715.1953
+    children:
+      - url: "{{ _.base_url }}Classroom"
+        name: Add
+        meta:
+          id: req_477bc78f74e042bbaae7e29e6e957518
+          created: 1748124017331
+          modified: 1748124040288
+          isPrivate: false
+          sortKey: -1745289057972.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"firstName": "Juliana",
+            	"lastName": "Costa",
+            	"email": "juliana.costa@escolasolnascente.edu.br",
+            	"position": "Professor de matemática",
+            	"experience": "1998-05-20"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Classroom"
+        name: GetAll
+        meta:
+          id: req_fe16dc6c971044fb8d4484d81e9b90fb
+          created: 1748124017332
+          modified: 1748124036664
+          isPrivate: false
+          sortKey: -1745289058091
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Classroom/details"
+        name: FindById
+        meta:
+          id: req_6289dc5600c049758c35658baadccdf9
+          created: 1748124017333
+          modified: 1748124257256
+          isPrivate: false
+          sortKey: -1745289058191
+        method: GET
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            name: id
+            value: 08dd974b-99dd-4d0d-81a9-559546ced83e
+            disabled: false
+          - id: pair_32e9abbdf8ec48a38be00ac70a274379
+            name: options.includeStudents
+            value: "true"
+            disabled: false
+          - id: pair_bb0f2ba2dd784addaf3735ed17666fdc
+            name: options.includeTeachers
+            value: "true"
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Classroom"
+        name: Update
+        meta:
+          id: req_aabe9798ccc64c77b3df5decf6738d26
+          created: 1748124017334
+          modified: 1748124176824
+          isPrivate: false
+          sortKey: -1745289057950.375
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd974b-99dd-4d0d-81a9-559546ced83e",
+            	"name": "Turma 9 ano A"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Classroom/student"
+        name: AddStudent
+        meta:
+          id: req_9b40dd2739a74061aa57d8c01218de51
+          created: 1748124213383
+          modified: 1748124225752
+          isPrivate: false
+          sortKey: -1745289057939.4375
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd974b-99dd-4d0d-81a9-559546ced83e",
+            	"studentId": "Turma 9 ano A"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}Classroom/teacher"
+        name: AddTeacher
+        meta:
+          id: req_d370bfdd3c3b41a18d2a7a97e4559c23
+          created: 1748124240409
+          modified: 1748124243867
+          isPrivate: false
+          sortKey: -1745289057933.9688
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "08dd974b-99dd-4d0d-81a9-559546ced83e",
+            	"studentId": "Turma 9 ano A"
+            }
+        parameters:
+          - id: pair_f14122cc7c09455ba69df997ac8d6aa0
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_9595feac5ffe4006a8bdfa02b2a987eb
+          - name: User-Agent
+            value: insomnia/11.0.2
+            id: pair_7ce7f346bedf43a4a76083f74b132fd8
+          - id: pair_22715a90722840aabba8077e9ea63319
+            name: Authorization
+            value: Bearer {{ _.access_token }}
+            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1066,15 +2338,18 @@ collection:
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_0e4eb2660b4b1c3998eb1eab0ef4f8c3e841e43a
-    created: 1747001435705
-    modified: 1747001435705
+    id: jar_30847830c60de82bd31fa92ab835a4f949f32b2c
+    created: 1745289017517
+    modified: 1745289017517
 environments:
   name: Base Environment
   meta:
-    id: env_0e4eb2660b4b1c3998eb1eab0ef4f8c3e841e43a
-    created: 1747001435704
-    modified: 1747001452871
+    id: env_30847830c60de82bd31fa92ab835a4f949f32b2c
+    created: 1745289017515
+    modified: 1748124107089
     isPrivate: false
   data:
     base_url: http://localhost:5000/api/
+    keykloak_base_url: http://localhost:8080/
+    keykloak_client_secret: 4srxgzMBotBuEFz0PubJ7s0jixkmiNDd
+    access_token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRMDVaRFhqWGhRM3V5Qk10N19hNVhWY25WQUI5SVlVVnRHMWszNWNoZWd3In0.eyJleHAiOjE3NDgxMjQ0MDAsImlhdCI6MTc0ODEyNDEwMCwianRpIjoiNGVjMTk1N2QtMjkzZC00YzAzLWE2MjMtYWQ0Zjg3MzMzNzRmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9LbG9rZSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhNTIxYzQ0OS1mYmU3LTQ5NTQtYjkxMy1kYThkNTE0OTMzODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJrbG9rZS1hcGkiLCJzZXNzaW9uX3N0YXRlIjoiZmZjMzQ0MjgtNzI4OS00MmNjLWI5MzEtZDU4YmYzNTk2MTcwIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLWtsb2tlIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiJmZmMzNDQyOC03Mjg5LTQyY2MtYjkzMS1kNThiZjM1OTYxNzAiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY2l0eUhhbGxJZCI6IjA4ZGQ5NzQ3LWNjNjUtNGRkZC04NDBhLWRhZDQ1MWJlOWM3NCIsInNjaG9vbElkIjoiMDhkZDk3NDgtOWRhNC00MjlkLTgyOTctYTE2YjI4ZDA4NWJiIiwibmFtZSI6IkJydW5vIEFsbWVpZGEiLCJ1c2VyVHlwZSI6IlNjaG9vbEFkbWluIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYnJ1bm8uYWxtZWlkYUBlc2NvbGFzb2xuYXNjZW50ZS5lZHUuYnIiLCJnaXZlbl9uYW1lIjoiQnJ1bm8iLCJmYW1pbHlfbmFtZSI6IkFsbWVpZGEiLCJlbWFpbCI6ImJydW5vLmFsbWVpZGFAZXNjb2xhc29sbmFzY2VudGUuZWR1LmJyIn0.0pIa1Ov59kF96Z415aYNe2s2h_1OHRvT1GQ3hq57vELflY-czwVo0aRivbVYLxCRiq1XFC__jbvNxIAxiuvajSkG2XgLNNKGj0MAJR3UfjAF647RWDafAV1y746J4beUkj1-3Ni4Yy6IZr-JQsA3AQjoQFjVPTrkO5G64vTfruo3LTFKIrFfiowI7G1wWFZqKnDMg6XIZgLgdPrPLke1o3-iEGGP4cYXXMCh_uASxaMbKOdx_nXnPXRdhuCL1B5_fikZCBaPRemRdRUicHvPN6OCPRjsw3ZCLd-wDY7Mp5sttF6_D3rqBRjwu2hnOIdFvUwndFLHUgvXhEb-PWQ0Mw

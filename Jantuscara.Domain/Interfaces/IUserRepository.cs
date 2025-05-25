@@ -7,6 +7,7 @@ namespace Jantuscara.Domain.Interfaces
         Task AddChefAsync(Chef chef);
         Task<Chef?> GetCheftByIdAsync(Guid chefId);
         Task<IEnumerable<Chef>> GetAllChefsAsync();
+        Task<IEnumerable<Chef>> GetAllChefsByYearAsync(int year);
         void DeleteChefAsync(Chef chef);
 
         Task AddTasterAsync(Taster taster);

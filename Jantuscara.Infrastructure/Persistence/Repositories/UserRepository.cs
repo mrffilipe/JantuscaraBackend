@@ -30,6 +30,14 @@ namespace Jantuscara.Infrastructure.Persistence.Repositories
             return await _context.Chefs.ToListAsync();
         }
 
+        public async Task<IEnumerable<Chef>> GetAllChefsByYearAsync(int year)
+        {
+            return await _context.Chefs
+                .Where(c => c.ContractDate.ToDateTime(TimeOnly.MinValue).Year == year)
+                .Include(c => c.Recipes)
+                .ToListAsync();
+        }
+
         public void DeleteChefAsync(Chef chef)
         {
             _context.Chefs.Remove(chef);
